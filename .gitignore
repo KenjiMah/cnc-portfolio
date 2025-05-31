@@ -1,1 +1,18 @@
 node_modules
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+*.log
+
+# OS/system files
+.DS_Store
+
+# Environment variables (if used)
+.env
+
+# IDE configs (optional)
+.vscode/

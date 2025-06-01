@@ -6,7 +6,7 @@ export function About() {
         {/* LEFT COLUMN */}
         <div className="flex flex-col items-center md:items-start">
           <img
-            src={`url('${import.meta.env.BASE_URL}ProfilePic.jfif')`}
+            src={`url('${import.meta.env.BASE_URL}ProfilePic.png')`}
             alt="Kenji Mah"
             className="w-40 h-40 rounded-full object-cover mb-4 border border-zinc-700"
           />

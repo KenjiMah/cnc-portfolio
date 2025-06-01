@@ -16,9 +16,7 @@ function App() {
         <div
           className=" bg-black/50 sticky top-0 h-60 w-full bg-cover bg-center transition-opacity duration-300"
           style={{
-            backgroundImage: `url('${
-              import.meta.env.BASE_URL
-            }ProfilePic.jfif')`,
+            backgroundImage: `url('${import.meta.env.BASE_URL}background.png')`,
           }}
           id="hero-bg"
         >

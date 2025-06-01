@@ -10,6 +10,14 @@ const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
 
 export const projects = [
   {
+    id: "dice",
+    title: "Precise Dice",
+    projectType: "Case Study",
+    description:
+      "Precision practice for facing a perfect cube with -0.0003 tolerance",
+    image: imageMap["./assets/images/dice/dice.jpeg"],
+  },
+  {
     id: "metalLetter",
     title: "Metal Letter",
     projectType: "Case Study",

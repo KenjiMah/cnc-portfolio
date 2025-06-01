@@ -1,4 +1,5 @@
 import { About } from "./About";
+import { ROUTES } from "./constants";
 import "./App.css";
 import { DetailedProject } from "./DetailedProject";
 import { IconLinks } from "./IconLinks";
@@ -15,7 +16,9 @@ function App() {
         <div
           className=" bg-black/50 sticky top-0 h-60 w-full bg-cover bg-center transition-opacity duration-300"
           style={{
-            backgroundImage: `url('${import.meta.env.BASE_URL}background.png')`,
+            backgroundImage: `url('${
+              import.meta.env.BASE_URL
+            }ProfilePic.jfif')`,
           }}
           id="hero-bg"
         >
@@ -23,7 +26,7 @@ function App() {
             className="text-zinc-100 text-5xl font-bold drop-shadow-md"
             style={{ paddingTop: "3rem" }}
           >
-            Kenji Mah – CNC Portfolio
+            Kenji Mah
           </h1>
           <p className="text-zinc-100 text-lg mt-4 drop-shadow-sm">
             Precision. Passion. Projects.
@@ -40,9 +43,12 @@ function App() {
       <section className="-mt-20 relative z-20 bg-zinc-950 text-zinc-100 px-6 py-12">
         <Routes>
           <Route index element={<Projects />} />
-          <Route path="about" element={<About />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="projects/:projectId" element={<DetailedProject />} />
+          <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
+          <Route path={ROUTES.PROJECTPAGE} element={<Projects />} />
+          <Route
+            path={`${ROUTES.PROJECTPAGE}/:projectId`}
+            element={<DetailedProject />}
+          />
         </Routes>
       </section>
       <PopoverMenubar />

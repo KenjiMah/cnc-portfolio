@@ -1,3 +1,8 @@
+export const ROUTES = {
+  PROJECTPAGE: "projects",
+  ABOUTMEPAGE: "about",
+};
+
 const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
   eager: true,
   import: "default",

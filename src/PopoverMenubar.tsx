@@ -1,6 +1,7 @@
 import { Card } from "./components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { ROUTES } from "./constants";
 
 export function PopoverMenubar() {
   return (
@@ -9,10 +10,10 @@ export function PopoverMenubar() {
       style={{ justifySelf: "anchor-center" }}
     >
       <div className="flex gap-2 ">
-        <Link to="/">
+        <Link to={`/${ROUTES.PROJECTPAGE}`}>
           <Button>Projects</Button>
         </Link>
-        <Link to="/about">
+        <Link to={`/${ROUTES.ABOUTMEPAGE}`}>
           <Button>About</Button>
         </Link>
       </div>

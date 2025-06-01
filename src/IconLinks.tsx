@@ -1,3 +1,9 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 function HoverIcon({
   tooltip,
   link,
@@ -8,9 +14,18 @@ function HoverIcon({
   icon: string;
 }) {
   return (
-    <a href={link}>
-      <i className={` text-gray-200 fa-2xl ${icon}`}></i>
-    </a>
+    <Tooltip delayDuration={500}>
+      <TooltipTrigger asChild>
+        <a href={link}>
+          <i
+            className={` text-gray-300 hover:text-white transition-colors fa-2xl ${icon}`}
+          />
+        </a>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>{tooltip}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 }
 

@@ -1,5 +1,6 @@
 import { About } from "./About";
 import "./App.css";
+import { IconLinks } from "./IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
 import { Projects } from "./Projects";
 import { Routes, Route } from "react-router-dom";
@@ -26,8 +27,8 @@ function App() {
           <p className="text-zinc-100 text-lg mt-4 drop-shadow-sm">
             Precision. Passion. Projects.
           </p>
-          <div className="absolute bottom-0 left-0 w-full h-12 shadow-[inset_0_-60px_60px_-10px_rgba(24,24,27,0.9)] z-10 pointer-events-none">
-            hi
+          <div className="absolute bottom-0 left-0 w-full h-12 shadow-[inset_0_-60px_60px_-10px_rgba(24,24,27,0.9)] z-10">
+            <IconLinks />
           </div>
           {/* Foreground content */}
         </div>

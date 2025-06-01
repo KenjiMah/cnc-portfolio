@@ -1,61 +1,48 @@
+import { About } from "./About";
 import "./App.css";
-import { projects } from "./constants";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-
-function CNCProjectCard({
-  title,
-  description,
-  image,
-}: {
-  title: string;
-  description: string;
-  image: string;
-}) {
-  return (
-    <Card className="overflow-hidden">
-      <img
-        src={image}
-        alt={title}
-        loading="lazy"
-        className="w-full h-48 object-cover"
-        style={{
-          objectFit: "contain", // 'cover' or 'contain' depending on effect
-        }}
-      />
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardFooter>
-        <Button>View Details</Button>
-      </CardFooter>
-    </Card>
-  );
-}
+import { PopoverMenubar } from "./PopoverMenubar";
+import { Projects } from "./Projects";
+import { Routes, Route } from "react-router-dom";
+// import BackgroundImage from "/background.jpg";
 
 function App() {
   return (
     <>
-      <div className="min-h-screen p-6 bg-muted text-foreground">
-        <h1 className="text-3xl font-bold mb-6">Kenji Mah – CNC Portfolio</h1>
-        <div className="grid gap-4 md:grid-cols-2">
-          {projects.map((project, idx) => (
-            <CNCProjectCard
-              title={project.title}
-              image={project.image}
-              description={project.description}
-              key={idx}
-            />
-          ))}
+      <div className="relative h-80">
+        {/* Background that fades on scroll */}
+        <div
+          className=" bg-black/50 sticky top-0 h-60 w-full bg-cover bg-center transition-opacity duration-300"
+          style={{
+            backgroundImage: `url('${import.meta.env.BASE_URL}background.png')`,
+          }}
+          id="hero-bg"
+        >
+          <h1
+            className="text-zinc-100 text-5xl font-bold drop-shadow-md"
+            style={{ paddingTop: "3rem" }}
+          >
+            Kenji Mah – CNC Portfolio
+          </h1>
+          <p className="text-zinc-100 text-lg mt-4 drop-shadow-sm">
+            Precision. Passion. Projects.
+          </p>
+          <div className="absolute bottom-0 left-0 w-full h-12 shadow-[inset_0_-60px_60px_-10px_rgba(24,24,27,0.9)] z-10 pointer-events-none">
+            hi
+          </div>
+          {/* Foreground content */}
         </div>
       </div>
+
+      {/* OVERLAPPING CONTENT */}
+
+      <section className="-mt-20 relative z-20 bg-zinc-950 text-zinc-100 px-6 py-12">
+        <Routes>
+          <Route path="/" element={<Projects />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </section>
+      <PopoverMenubar />
     </>
   );
 }

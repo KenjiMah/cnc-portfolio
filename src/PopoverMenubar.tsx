@@ -9,12 +9,12 @@ export function PopoverMenubar() {
       style={{ justifySelf: "anchor-center" }}
     >
       <div className="flex gap-2 ">
-        <Button>
-          <Link to="/">Projects</Link>
-        </Button>
-        <Button>
-          <Link to="/about">About</Link>
-        </Button>
+        <Link to="/">
+          <Button>Projects</Button>
+        </Link>
+        <Link to="/about">
+          <Button>About</Button>
+        </Link>
       </div>
     </Card>
   );

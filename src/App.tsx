@@ -1,5 +1,6 @@
 import { About } from "./About";
 import "./App.css";
+import { DetailedProject } from "./DetailedProject";
 import { IconLinks } from "./IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
 import { Projects } from "./Projects";
@@ -38,9 +39,10 @@ function App() {
 
       <section className="-mt-20 relative z-20 bg-zinc-950 text-zinc-100 px-6 py-12">
         <Routes>
-          <Route path="/" element={<Projects />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
+          <Route index element={<Projects />} />
+          <Route path="about" element={<About />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/:projectId" element={<DetailedProject />} />
         </Routes>
       </section>
       <PopoverMenubar />

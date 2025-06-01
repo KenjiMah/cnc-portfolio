@@ -16,7 +16,7 @@ function HoverIcon({
   return (
     <Tooltip delayDuration={500}>
       <TooltipTrigger asChild>
-        <a href={link}>
+        <a href={link} target="_blank">
           <i
             className={` text-gray-300 hover:text-white transition-colors fa-2xl ${icon}`}
           />

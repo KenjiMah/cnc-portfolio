@@ -32,7 +32,7 @@ function HoverIcon({
 export function IconLinks() {
   return (
     <div className="h-full w-full content-center text-right pr-6">
-      <div className="gap-4 inline-flex">
+      <div className="gap-6 inline-flex">
         <HoverIcon
           tooltip={"Email"}
           link="mailto:kenjimahcnc@gmail.com"

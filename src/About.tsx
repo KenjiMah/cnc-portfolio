@@ -74,6 +74,32 @@ function RightCol() {
         design. I bring a builder’s mindset, a user-focused approach, and a
         drive to learn and create at every level.
       </p>
+      <div>
+        <br />
+        <h2 className="font-bold">Worked With</h2>
+        <div className="gap-4 flex">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/breinify/posts/?feedView=all"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}breinify_inc__logo.png`}
+              alt="Breinify"
+              className="w-20 h-20 rounded-full object-contain mb-4 border border-white bg-white self-center"
+            />
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/sensagrate/posts/?feedView=all"
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}sensagrate_logo.png`}
+              alt="Sensagrate"
+              className="w-20 h-20 rounded-full object-contain mb-4 border border-white bg-white self-center p-0.5"
+            />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

@@ -2,6 +2,27 @@ import { Card } from "./components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ROUTES } from "./constants";
+import type { ReactNode } from "react";
+// import { useLocation } from "react-router-dom";
+
+function IconWrapper({
+  pathTo,
+  iconClassName,
+  children,
+}: {
+  pathTo: string;
+  iconClassName: string;
+  children: ReactNode;
+}) {
+  // const { pathname } = useLocation();
+  return (
+    <Link to={pathTo}>
+      <Button>
+        <i className={iconClassName} /> {children}
+      </Button>
+    </Link>
+  );
+}
 
 export function PopoverMenubar() {
   return (
@@ -10,12 +31,18 @@ export function PopoverMenubar() {
       style={{ justifySelf: "anchor-center" }}
     >
       <div className="flex gap-2 ">
-        <Link to={`/${ROUTES.PROJECTPAGE}`}>
-          <Button>Projects</Button>
-        </Link>
-        <Link to={`/${ROUTES.ABOUTMEPAGE}`}>
-          <Button>About</Button>
-        </Link>
+        <IconWrapper
+          pathTo={`/${ROUTES.PROJECTPAGE}`}
+          iconClassName={`fa-regular fa-object-group`}
+        >
+          Projects
+        </IconWrapper>
+        <IconWrapper
+          pathTo={`/${ROUTES.ABOUTMEPAGE}`}
+          iconClassName={`fa-solid fa-info-circle pt-1`}
+        >
+          About
+        </IconWrapper>
       </div>
     </Card>
   );

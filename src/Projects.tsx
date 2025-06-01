@@ -63,7 +63,7 @@ export function Projects() {
 
   return (
     <div className="max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6">Recent Projects</h2>
+      <h2 className="text-3xl font-bold mb-6">Past Projects</h2>
       <p className="text-zinc-400 mb-8">
         Scroll down to explore the work I've done on aluminum parts and machine
         programming.

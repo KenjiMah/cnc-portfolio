@@ -1,53 +1,33 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-
-function HoverIcon({
-  tooltip,
-  link,
-  icon,
-}: {
-  tooltip?: string;
-  link: string;
-  icon: string;
-}) {
-  return (
-    <Tooltip delayDuration={500}>
-      <TooltipTrigger asChild>
-        <a href={link} target="_blank">
-          <i
-            className={` text-gray-300 hover:text-white transition-colors fa-2xl ${icon}`}
-          />
-        </a>
-      </TooltipTrigger>
-      <TooltipContent>
-        <p>{tooltip}</p>
-      </TooltipContent>
-    </Tooltip>
-  );
-}
+import { TooltipLinkWrapper } from "./customComponents/TooltipWrapper";
 
 export function IconLinks() {
   return (
     <div className="h-full w-full content-center text-right pr-6">
       <div className="gap-6 inline-flex">
-        <HoverIcon
+        <TooltipLinkWrapper
           tooltip={"Email"}
           link="mailto:kenjimahcnc@gmail.com"
-          icon="fa-solid fa-envelope"
-        />
-        <HoverIcon
+        >
+          <i
+            className={`fa-solid fa-envelope text-gray-300 hover:text-white transition-colors fa-2xl`}
+          />
+        </TooltipLinkWrapper>
+        <TooltipLinkWrapper
           tooltip={"LinkedIn"}
           link="https://www.linkedin.com/in/kenji-mah-69b86a14a/"
-          icon="fa-brands fa-linkedin"
-        />
-        <HoverIcon
+        >
+          <i
+            className={`fa-brands fa-linkedin text-gray-300 hover:text-white transition-colors fa-2xl`}
+          />
+        </TooltipLinkWrapper>
+        <TooltipLinkWrapper
           tooltip={"GitHub"}
           link="https://github.com/KenjiMah"
-          icon="fa-brands fa-github"
-        />
+        >
+          <i
+            className={`fa-brands fa-github text-gray-300 hover:text-white transition-colors fa-2xl`}
+          />
+        </TooltipLinkWrapper>
       </div>
     </div>
   );

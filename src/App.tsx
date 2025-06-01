@@ -39,15 +39,17 @@ function App() {
       {/* OVERLAPPING CONTENT */}
 
       <section className="-mt-20 relative z-20 bg-zinc-950 text-zinc-100 px-6 py-12">
-        <Routes>
-          <Route index element={<Projects />} />
-          <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
-          <Route path={ROUTES.PROJECTPAGE} element={<Projects />} />
-          <Route
-            path={`${ROUTES.PROJECTPAGE}/:projectId`}
-            element={<DetailedProject />}
-          />
-        </Routes>
+        <section className="max-w-5lg mx-auto text-zinc-100">
+          <Routes>
+            <Route index element={<Projects />} />
+            <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
+            <Route path={ROUTES.PROJECTPAGE} element={<Projects />} />
+            <Route
+              path={`${ROUTES.PROJECTPAGE}/:projectId`}
+              element={<DetailedProject />}
+            />
+          </Routes>
+        </section>
       </section>
       <PopoverMenubar />
     </>

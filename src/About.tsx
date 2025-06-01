@@ -1,3 +1,5 @@
+import { TooltipLinkWrapper } from "./customComponents/TooltipWrapper";
+
 function LeftCol() {
   return (
     <div className="flex flex-col items-center col-start-1 md:col-start-2">
@@ -78,26 +80,26 @@ function RightCol() {
         <br />
         <h2 className="font-bold">Worked With</h2>
         <div className="gap-4 flex">
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/company/breinify/posts/?feedView=all"
+          <TooltipLinkWrapper
+            link="https://www.linkedin.com/company/breinify/posts/?feedView=all"
+            tooltip="Breinify"
           >
             <img
               src={`${import.meta.env.BASE_URL}breinify_inc__logo.png`}
               alt="Breinify"
               className="w-20 h-20 rounded-full object-contain mb-4 border border-white bg-white self-center"
             />
-          </a>
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/company/sensagrate/posts/?feedView=all"
+          </TooltipLinkWrapper>
+          <TooltipLinkWrapper
+            link="https://www.linkedin.com/company/sensagrate/posts/?feedView=all"
+            tooltip="Sensagrate"
           >
             <img
               src={`${import.meta.env.BASE_URL}sensagrate_logo.png`}
               alt="Sensagrate"
               className="w-20 h-20 rounded-full object-contain mb-4 border border-white bg-white self-center p-0.5"
             />
-          </a>
+          </TooltipLinkWrapper>
         </div>
       </div>
     </div>
@@ -106,7 +108,7 @@ function RightCol() {
 
 export function About() {
   return (
-    <section className="max-w-5lg mx-auto px-6 py-12 text-zinc-100">
+    <>
       <h2 className="text-3xl font-bold mb-8">🛠️ About Me</h2>
       <div className="grid md:grid-cols-6 md:gap-8 justify-center grid-cols-1">
         {/* LEFT COLUMN */}
@@ -114,6 +116,6 @@ export function About() {
         {/* RIGHT COLUMN – About Paragraph */}
         <RightCol />
       </div>
-    </section>
+    </>
   );
 }

@@ -38,9 +38,9 @@ export function MetalLetterProject() {
         Step 2: Preparing the Aluminum Stock
       </h2>
       <p className="mb-6 text-base leading-relaxed">
-        I started with a flat aluminum plate approximately
+        I started with a flat aluminum plate approximately{" "}
         <strong>0.25 inches thick</strong> and just under 2.5 inches wide. The
-        initial length was oversized, so I trimmed it down to
+        initial length was oversized, so I trimmed it down to{" "}
         <strong>3.5 inches</strong> using a vertical bandsaw. This ensured the
         stock had a manageable footprint while still giving me enough material
         to work with for the final letter shape.
@@ -49,7 +49,7 @@ export function MetalLetterProject() {
         Step 3: Rough Cutting the Letter Profile
       </h2>
       <p className="mb-6 text-base leading-relaxed">
-        With the paper blueprint securely taped to the stock, I used a
+        With the paper blueprint securely taped to the stock, I used a{" "}
         <strong>vertical bandsaw</strong> to carefully cut out the outline of
         the letter. This required slow, deliberate cuts — especially around the
         internal corners — to stay tight to the layout while avoiding
@@ -60,7 +60,7 @@ export function MetalLetterProject() {
         Step 4: Edge Cleanup and Chamfering
       </h2>
       <p className="mb-6 text-base leading-relaxed">
-        To clean up the rough bandsaw edges and remove any burrs, I used a
+        To clean up the rough bandsaw edges and remove any burrs, I used a{" "}
         <strong>Dremel rotary tool</strong> with various sanding and grinding
         attachments. I rounded and chamfered all outside and inside corners to
         soften the geometry and give the piece a more polished, intentional

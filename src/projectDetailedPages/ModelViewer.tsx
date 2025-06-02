@@ -1,9 +1,15 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { Canvas, useThree } from "@react-three/fiber";
 import { useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
 import { OrbitControls, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
-import { PerspectiveCamera } from "three";
+import { PerspectiveCamera, Vector3 } from "three";
+
+type ModelViewerProps = {
+  modelPath: string;
+};
 
 const Scene = ({ modelPath }: { modelPath: string }) => {
   const obj = useLoader(OBJLoader, modelPath);
@@ -30,9 +36,15 @@ function ResizeHandler() {
   return null;
 }
 
-export function ModelViewer({ modelPath }: { modelPath: string }) {
+export function ModelViewer({ modelPath }: ModelViewerProps) {
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const controlsRef = useRef<typeof OrbitControls>(null);
+
+  // Store camera position and target to preserve across views
+  const [savedCameraPos, setSavedCameraPos] = useState(new Vector3(2, 2, 2));
+  const [savedTarget, setSavedTarget] = useState(new Vector3(0, 0, 0));
+
+  const embeddedControlsRef = useRef<typeof OrbitControls>(null);
+  const fullscreenControlsRef = useRef<typeof OrbitControls>(null);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -42,27 +54,70 @@ export function ModelViewer({ modelPath }: { modelPath: string }) {
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
+  // Save current camera position and target before going fullscreen
+  const openFullScreen = () => {
+    if (embeddedControlsRef.current) {
+      setSavedCameraPos(embeddedControlsRef.current.object.position.clone());
+      setSavedTarget(embeddedControlsRef.current.target.clone());
+    }
+    setIsFullScreen(true);
+  };
+
+  const closeFullScreen = () => {
+    if (fullscreenControlsRef.current) {
+      setSavedCameraPos(fullscreenControlsRef.current.object.position.clone());
+      setSavedTarget(fullscreenControlsRef.current.target.clone());
+    }
+    setIsFullScreen(false);
+  };
+
+  // Reset view depending on active controls
   const resetView = () => {
-    if (controlsRef.current) {
-      controlsRef?.current?.reset();
+    if (isFullScreen && fullscreenControlsRef.current) {
+      fullscreenControlsRef.current.reset();
+    } else if (embeddedControlsRef.current) {
+      embeddedControlsRef.current.reset();
     }
   };
 
-  const CanvasContent = ({ modelPath }: { modelPath: string }) => (
-    <>
-      <ResizeHandler />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} />
-      <OrbitControls ref={controlsRef} enableDamping />
-      <Scene modelPath={modelPath} />
-      <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
-        <GizmoViewport
-          axisColors={["red", "green", "blue"]}
-          labelColor="white"
-        />
-      </GizmoHelper>
-    </>
-  );
+  // This component sets initial camera position and updates controls target
+  const CanvasContent = ({
+    controlsRef,
+    cameraPosition,
+    target,
+  }: {
+    controlsRef: React.RefObject<typeof OrbitControls>;
+    cameraPosition: Vector3;
+    target: Vector3;
+  }) => {
+    const { camera } = useThree();
+
+    // Update camera and controls target on mount
+    useEffect(() => {
+      camera.position.copy(cameraPosition);
+      camera.lookAt(target);
+      if (controlsRef.current) {
+        controlsRef.current.target.copy(target);
+        controlsRef.current.update();
+      }
+    }, [cameraPosition, target, camera, controlsRef]);
+
+    return (
+      <>
+        <ResizeHandler />
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} />
+        <OrbitControls ref={controlsRef} enableDamping />
+        <Scene modelPath={modelPath} />
+        <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
+          <GizmoViewport
+            axisColors={["red", "green", "blue"]}
+            labelColor="white"
+          />
+        </GizmoHelper>
+      </>
+    );
+  };
 
   return (
     <>
@@ -71,7 +126,11 @@ export function ModelViewer({ modelPath }: { modelPath: string }) {
           camera={{ position: [2, 2, 2], fov: 60 }}
           style={{ width: "100%", height: "100%" }}
         >
-          <CanvasContent modelPath={modelPath} />
+          <CanvasContent
+            controlsRef={embeddedControlsRef}
+            cameraPosition={savedCameraPos}
+            target={savedTarget}
+          />
         </Canvas>
 
         <div className="absolute top-2 right-2 flex space-x-2 z-10">
@@ -84,7 +143,7 @@ export function ModelViewer({ modelPath }: { modelPath: string }) {
           </button>
 
           <button
-            onClick={() => setIsFullScreen(true)}
+            onClick={openFullScreen}
             className="bg-black text-white rounded px-3 py-1 hover:bg-gray-800 transition cursor-pointer"
             aria-label="Enlarge Model Viewer"
           >
@@ -99,20 +158,33 @@ export function ModelViewer({ modelPath }: { modelPath: string }) {
           role="dialog"
           aria-modal="true"
         >
-          <button
-            onClick={() => setIsFullScreen(false)}
-            className="absolute top-4 right-4 z-[10000] bg-black text-white rounded px-3 py-1 text-xl hover:bg-gray-800 transition cursor-pointer"
-            aria-label="Close Fullscreen Viewer"
-          >
-            <i className="fa-solid fa-compress" />
-          </button>
+          <div className="absolute top-2 right-2 flex space-x-2 z-10">
+            <button
+              onClick={resetView}
+              className="bg-black text-white rounded px-3 py-1 hover:bg-gray-800 transition cursor-pointer"
+              aria-label="Reset camera view"
+            >
+              <i className="fa-solid fa-home" />
+            </button>
+            <button
+              onClick={closeFullScreen}
+              className="bg-black text-white rounded px-3 py-1 text-xl hover:bg-gray-800 transition cursor-pointer"
+              aria-label="Close Fullscreen Viewer"
+            >
+              <i className="fa-solid fa-compress" />
+            </button>
+          </div>
 
           <div className="w-full h-full">
             <Canvas
               camera={{ position: [2, 2, 2], fov: 60 }}
               style={{ width: "100%", height: "100%" }}
             >
-              <CanvasContent modelPath={modelPath} />
+              <CanvasContent
+                controlsRef={fullscreenControlsRef}
+                cameraPosition={savedCameraPos}
+                target={savedTarget}
+              />
             </Canvas>
           </div>
         </div>

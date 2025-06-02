@@ -1,4 +1,5 @@
 import { DiceProject } from "./projectDetailedPages/DiceProject";
+import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
 import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";
 
 const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
@@ -30,6 +31,7 @@ export const projects = [
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
     image: imageMap["./assets/images/maedaCrest/Crest.jpeg"],
+    detailedPage: MaedaCrestProject,
   },
   {
     id: "poroKeycaps",

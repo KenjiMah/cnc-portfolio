@@ -51,7 +51,8 @@ export function ModelViewer({
   const [savedTarget, setSavedTarget] = useState(
     new Vector3(...targetVectorInit)
   );
-
+  // use this console log to get initializations of the model
+  // console.log(savedCameraPos, savedTarget);
   const embeddedControlsRef = useRef<typeof OrbitControls>(null);
   const fullscreenControlsRef = useRef<typeof OrbitControls>(null);
 

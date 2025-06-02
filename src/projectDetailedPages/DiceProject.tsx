@@ -1,5 +1,7 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
-import BlogLayout from "./BlogLayout";
+import BlogLayout from "../customComponents/BlogLayout";
+import { ModelViewer } from "./ModelViewer";
+
 const imageMap = import.meta.glob(
   "../assets/images/dice/*.{png,jpeg,jpg,svg}",
   {
@@ -17,8 +19,23 @@ export function DiceProject() {
         mill. While it may seem straightforward, the tolerances and attention to
         detail demanded a level of care that rivals CNC work.
       </p>
+      <div className="ml-8 float-right border-2 border-white">
+        <ModelViewer modelPath={"./models/The Dice v6.obj"} />
+      </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 1: Cutting the Raw Stock
+        Step 1: Planning and CAD Modeling
+      </h2>
+      <p className="mb-6 text-base leading-relaxed">
+        I started by designing the dice in Fusion 360 to finalize dimensions and
+        dot placement before touching any material. This allowed me to visualize
+        the finished cube, generate a reference blueprint for machining, and
+        ensure that the layout would be symmetrical and consistent. Having a
+        detailed CAD model on hand was especially helpful when setting up for
+        precise drilling later on.
+      </p>
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">
+        Step 2: Cutting the Raw Stock
       </h2>
       <p className="mb-6 text-base leading-relaxed">
         I started with a rough-cut 1in x 1in x 5in aluminum block and used a
@@ -32,7 +49,7 @@ export function DiceProject() {
         className="float-right ml-6 mb-4 max-w-[250px] rounded shadow-sm"
       />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 2: Precision Facing on the Manual Mill
+        Step 3: Precision Facing on the Manual Mill
       </h2>
       <p className="mb-4 text-base leading-relaxed">
         With the stock roughed out, I moved to the manual mill for the real
@@ -52,7 +69,7 @@ export function DiceProject() {
         completely by hand.
       </p>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 3: Drilling the Dice Dots
+        Step 4: Drilling the Dice Dots
       </h2>
       <p className="mb-4 text-base leading-relaxed">
         Once the cube was finished to size, I laid out the classic dice pattern.

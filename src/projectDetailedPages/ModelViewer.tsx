@@ -32,7 +32,7 @@ function ResizeHandler() {
 
 export function ModelViewer({ modelPath }: { modelPath: string }) {
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const controlsRef = useRef(null);
+  const controlsRef = useRef<typeof OrbitControls>(null);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -44,8 +44,6 @@ export function ModelViewer({ modelPath }: { modelPath: string }) {
 
   const resetView = () => {
     if (controlsRef.current) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       controlsRef?.current?.reset();
     }
   };

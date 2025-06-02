@@ -67,6 +67,11 @@ export function MetalLetterProject() {
         appearance. This also made the letter safer to handle by eliminating any
         sharp points.
       </p>
+      <ExpandableImage
+        src={imageMap["../assets/images/metalLetter/Dremel.jpeg"]}
+        alt="Dice progress"
+        className="place-self-center max-w-[250px] rounded shadow-sm"
+      />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 5: Adding a Custom Surface Finish
       </h2>
@@ -78,11 +83,18 @@ export function MetalLetterProject() {
         lot of character to the piece and sets it apart from a generic machined
         surface.
       </p>
-      <ExpandableImage
-        src={imageMap["../assets/images/metalLetter/Letter.jpeg"]}
-        alt="Dice progress"
-        className="float-right ml-6 mb-4 max-w-[250px] rounded shadow-sm"
-      />
+      <div className="flex place-self-center">
+        <ExpandableImage
+          src={imageMap["../assets/images/metalLetter/Facing.jpeg"]}
+          alt="Dice progress"
+          className="max-w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/metalLetter/Letter.jpeg"]}
+          alt="Dice progress"
+          className="max-w-[250px] rounded shadow-sm"
+        />
+      </div>
     </BlogLayout>
   );
 }

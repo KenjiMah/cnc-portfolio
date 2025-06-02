@@ -1,6 +1,6 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
-import { ModelViewer } from "./ModelViewer";
+import { ModelViewer } from "../customComponents/ModelViewer";
 
 const imageMap = import.meta.glob(
   "../assets/images/dice/*.{png,jpeg,jpg,svg}",
@@ -84,6 +84,11 @@ export function DiceProject() {
       </p>
       <ExpandableImage
         src={imageMap["../assets/images/dice/progress2.jpeg"]}
+        alt="Dice progress"
+        className="float-right ml-6 mb-4 max-w-[250px] rounded shadow-sm"
+      />
+      <ExpandableImage
+        src={imageMap["../assets/images/dice/measure.jpeg"]}
         alt="Dice progress"
         className="float-right ml-6 mb-4 max-w-[250px] rounded shadow-sm"
       />

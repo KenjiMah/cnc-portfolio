@@ -9,6 +9,8 @@ import { PerspectiveCamera, Vector3 } from "three";
 
 type ModelViewerProps = {
   modelPath: string;
+  camVectorInit?: [number, number, number];
+  targetVectorInit?: [number, number, number];
 };
 
 const Scene = ({ modelPath }: { modelPath: string }) => {
@@ -36,12 +38,19 @@ function ResizeHandler() {
   return null;
 }
 
-export function ModelViewer({ modelPath }: ModelViewerProps) {
+export function ModelViewer({
+  modelPath,
+  camVectorInit = [2, 2, 2],
+  targetVectorInit = [0, 0, 0],
+}: ModelViewerProps) {
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  // Store camera position and target to preserve across views
-  const [savedCameraPos, setSavedCameraPos] = useState(new Vector3(2, 2, 2));
-  const [savedTarget, setSavedTarget] = useState(new Vector3(0, 0, 0));
+  const [savedCameraPos, setSavedCameraPos] = useState(
+    new Vector3(...camVectorInit)
+  );
+  const [savedTarget, setSavedTarget] = useState(
+    new Vector3(...targetVectorInit)
+  );
 
   const embeddedControlsRef = useRef<typeof OrbitControls>(null);
   const fullscreenControlsRef = useRef<typeof OrbitControls>(null);
@@ -54,7 +63,6 @@ export function ModelViewer({ modelPath }: ModelViewerProps) {
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
 
-  // Save current camera position and target before going fullscreen
   const openFullScreen = () => {
     if (embeddedControlsRef.current) {
       setSavedCameraPos(embeddedControlsRef.current.object.position.clone());
@@ -71,16 +79,16 @@ export function ModelViewer({ modelPath }: ModelViewerProps) {
     setIsFullScreen(false);
   };
 
-  // Reset view depending on active controls
   const resetView = () => {
-    if (isFullScreen && fullscreenControlsRef.current) {
-      fullscreenControlsRef.current.reset();
-    } else if (embeddedControlsRef.current) {
-      embeddedControlsRef.current.reset();
+    const controls = isFullScreen
+      ? fullscreenControlsRef.current
+      : embeddedControlsRef.current;
+
+    if (controls) {
+      controls.reset();
     }
   };
 
-  // This component sets initial camera position and updates controls target
   const CanvasContent = ({
     controlsRef,
     cameraPosition,
@@ -92,12 +100,19 @@ export function ModelViewer({ modelPath }: ModelViewerProps) {
   }) => {
     const { camera } = useThree();
 
-    // Update camera and controls target on mount
     useEffect(() => {
-      camera.position.copy(cameraPosition);
+      camera.position?.copy(cameraPosition);
       camera.lookAt(target);
+
       if (controlsRef.current) {
-        controlsRef.current.target.copy(target);
+        controlsRef.current.target?.copy(target);
+        controlsRef.current.object.position?.copy(cameraPosition);
+        controlsRef.current.object.updateMatrixWorld();
+
+        // ✅ Ensure reset goes to these values
+        controlsRef.current.target0?.copy(target);
+        controlsRef.current.object.position0?.copy(cameraPosition);
+
         controlsRef.current.update();
       }
     }, [cameraPosition, target, camera, controlsRef]);
@@ -123,7 +138,7 @@ export function ModelViewer({ modelPath }: ModelViewerProps) {
     <>
       <div className="relative w-full h-full bg-[#111]">
         <Canvas
-          camera={{ position: [2, 2, 2], fov: 60 }}
+          camera={{ position: camVectorInit, fov: 60 }}
           style={{ width: "100%", height: "100%" }}
         >
           <CanvasContent
@@ -177,7 +192,7 @@ export function ModelViewer({ modelPath }: ModelViewerProps) {
 
           <div className="w-full h-full">
             <Canvas
-              camera={{ position: [2, 2, 2], fov: 60 }}
+              camera={{ position: camVectorInit, fov: 60 }}
               style={{ width: "100%", height: "100%" }}
             >
               <CanvasContent

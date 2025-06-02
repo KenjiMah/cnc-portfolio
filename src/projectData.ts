@@ -1,4 +1,5 @@
 import { DiceProject } from "./projectDetailedPages/DiceProject";
+import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";
 
 const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
   eager: true,
@@ -13,7 +14,7 @@ export const projects = [
     description:
       'Precision practice for facing a perfect cube with -0.0003" tolerance',
     image: imageMap["./assets/images/dice/progress2.jpeg"],
-    detailedPage: DiceProject
+    detailedPage: DiceProject,
   },
   {
     id: "metalLetter",
@@ -21,6 +22,7 @@ export const projects = [
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
     image: imageMap["./assets/images/metalLetter/Letter.jpeg"],
+    detailedPage: MetalLetterProject,
   },
   {
     id: "maedaCrest",

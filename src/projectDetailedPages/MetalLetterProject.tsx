@@ -83,7 +83,7 @@ export function MetalLetterProject() {
         lot of character to the piece and sets it apart from a generic machined
         surface.
       </p>
-      <div className="flex place-self-center">
+      <div className="flex place-self-center gap-4">
         <ExpandableImage
           src={imageMap["../assets/images/metalLetter/Facing.jpeg"]}
           alt="Dice progress"

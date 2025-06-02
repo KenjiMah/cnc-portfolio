@@ -121,7 +121,7 @@ export function ModelViewer({ modelPath }: ModelViewerProps) {
 
   return (
     <>
-      <div className="relative w-[600px] h-[400px] bg-[#111]">
+      <div className="relative w-full h-full bg-[#111]">
         <Canvas
           camera={{ position: [2, 2, 2], fov: 60 }}
           style={{ width: "100%", height: "100%" }}

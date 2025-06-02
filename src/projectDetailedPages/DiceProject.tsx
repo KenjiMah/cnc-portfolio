@@ -19,7 +19,7 @@ export function DiceProject() {
         mill. While it may seem straightforward, the tolerances and attention to
         detail demanded a level of care that rivals CNC work.
       </p>
-      <div className="ml-8 float-right border-2 border-white">
+      <div className="ml-8 md:float-right border-2 border-white w-[300px] h-[200px] lg:w-[600px] lg:h-[400px]">
         <ModelViewer modelPath={"./models/The Dice v6.obj"} />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">

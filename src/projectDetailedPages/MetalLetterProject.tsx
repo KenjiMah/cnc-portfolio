@@ -26,12 +26,8 @@ export function MetalLetterProject() {
       <div className="ml-8 md:float-right border-2 border-white w-[300px] h-[200px] lg:w-[600px] lg:h-[400px]">
         <ModelViewer
           modelPath={"./models/Basic Metal Project.obj"}
-          camVectorInit={[
-            2.2281599097064553, 4.108045279059962, 3.305352991147572,
-          ]}
-          targetVectorInit={[
-            0.7644810412751796, 0.7634351964348373, -0.8778743140089241,
-          ]}
+          camVectorInit={[2.23, 4.12, 3.31]}
+          targetVectorInit={[0.76, 0.76, -0.88]}
         />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
@@ -46,18 +42,34 @@ export function MetalLetterProject() {
         to work with for the final letter shape.
       </p>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 3: Rough Cutting the Letter Profile
+        Step 3: Drilling the Keychain Hole
       </h2>
       <p className="mb-6 text-base leading-relaxed">
-        With the paper blueprint securely taped to the stock, I used a{" "}
-        <strong>vertical bandsaw</strong> to carefully cut out the outline of
-        the letter. This required slow, deliberate cuts — especially around the
-        internal corners — to stay tight to the layout while avoiding
+        Before cutting the profile out of the stock, I needed to drill a hole
+        for the keychain attachment. Doing this first was important—once the
+        outline is cut, the material becomes more fragile and harder to secure.
+        While the stock was still flat and rigid, I clamped it in a vise and
+        taped the paper blueprint securely to it so I could align the drill
+        press to the correct location.
+      </p>
+      <p className="mb-6 text-base leading-relaxed">
+        I used a center drill followed by a <strong>1/4-inch drill bit</strong>{" "}
+        to create the hole. This size comfortably fits a split key ring while
+        leaving enough wall thickness around the edge. Drilling early ensured
+        accuracy, clean edges, and prevented deformation of the final part.
+      </p>
+      <h2 className="text-2xl font-semibold mt-10 mb-4">
+        Step 4: Rough Cutting the Letter Profile
+      </h2>
+      <p className="mb-6 text-base leading-relaxed">
+        I used a <strong>vertical bandsaw</strong> to carefully cut out the
+        outline of the letter. This required slow, deliberate cuts — especially
+        around the internal corners — to stay tight to the layout while avoiding
         overcutting. Once the basic profile was freed, I removed the paper and
         prepared the piece for finishing.
       </p>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 4: Edge Cleanup and Chamfering
+        Step 5: Edge Cleanup and Chamfering
       </h2>
       <p className="mb-6 text-base leading-relaxed">
         To clean up the rough bandsaw edges and remove any burrs, I used a{" "}
@@ -73,7 +85,7 @@ export function MetalLetterProject() {
         className="place-self-center max-w-[250px] rounded shadow-sm"
       />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 5: Adding a Custom Surface Finish
+        Step 6: Adding a Custom Surface Finish
       </h2>
       <p className="mb-6 text-base leading-relaxed">
         For the final step, I used the Dremel again — this time to apply a

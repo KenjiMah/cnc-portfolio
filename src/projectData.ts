@@ -1,6 +1,7 @@
 import { DiceProject } from "./projectDetailedPages/DiceProject";
 import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
 import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";
+import { ThreeDKeycapsProject } from "./projectDetailedPages/ThreeDKeycapsProject";
 
 const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
   eager: true,
@@ -40,6 +41,7 @@ export const projects = [
     description:
       "Printed some cute looking keycaps using the ELEGOO Saturn 2 MSLA 3D Printer.",
     image: imageMap["./assets/images/poroKeycaps/poroKeycaps.jpeg"],
+    detailedPage: ThreeDKeycapsProject,
   },
   {
     id: "parklet",

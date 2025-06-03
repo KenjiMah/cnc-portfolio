@@ -58,6 +58,11 @@ export function MetalLetterProject() {
         leaving enough wall thickness around the edge. Drilling early ensured
         accuracy, clean edges, and prevented deformation of the final part.
       </p>
+      <ExpandableImage
+        src={imageMap["../assets/images/metalLetter/drillPress.jpeg"]}
+        alt="Dice progress"
+        className="place-self-center max-w-[250px] rounded shadow-sm"
+      />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 4: Rough Cutting the Letter Profile
       </h2>
@@ -79,11 +84,18 @@ export function MetalLetterProject() {
         appearance. This also made the letter safer to handle by eliminating any
         sharp points.
       </p>
-      <ExpandableImage
-        src={imageMap["../assets/images/metalLetter/Dremel.jpeg"]}
-        alt="Dice progress"
-        className="place-self-center max-w-[250px] rounded shadow-sm"
-      />
+      <div className="flex place-self-center gap-4">
+        <ExpandableImage
+          src={imageMap["../assets/images/metalLetter/roughCut.jpeg"]}
+          alt="Dice progress"
+          className="max-w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/metalLetter/Dremel.jpeg"]}
+          alt="Dice progress"
+          className="max-w-[250px] rounded shadow-sm"
+        />
+      </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 6: Adding a Custom Surface Finish
       </h2>

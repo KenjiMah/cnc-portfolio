@@ -115,7 +115,7 @@ export function DiceProject() {
       <ExpandableImage
         src={imageMap["../assets/images/dice/chamferMill.png"]}
         alt="Dice progress"
-        className="ml-6 mb-4 max-w-[250px] rounded shadow-sm"
+        className="float-right ml-6 mb-4 max-w-[400px] rounded shadow-sm"
       />
       <p className="mb-6 text-base leading-relaxed">
         We perform a{" "}
@@ -138,11 +138,18 @@ export function DiceProject() {
         coordinates that compensate for the unique geometry of the chamfer
         endmill.
       </p>
-      <ExpandableImage
-        src={imageMap["../assets/images/dice/chamferProgress.jpeg"]}
-        alt="Dice progress"
-        className="ml-6 mb-4 max-w-[250px] rounded shadow-sm"
-      />
+      <div className="flex place-self-center gap-6">
+        <ExpandableImage
+          src={imageMap["../assets/images/dice/chamferProgress.jpeg"]}
+          alt="Dice progress"
+          className="mb-4 max-w-[250px] rounded shadow-sm"
+        />
+      </div>
+
+      <p className="italic text-sm text-gray-600">
+        More details, measurements, and pictures to come — including the
+        chamfering and polishing steps.
+      </p>
     </BlogLayout>
   );
 }

@@ -1,6 +1,7 @@
 import { DiceProject } from "./projectDetailedPages/DiceProject";
 import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
 import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";
+import { ParkletProject } from "./projectDetailedPages/ParkletProject";
 import { ThreeDKeycapsProject } from "./projectDetailedPages/ThreeDKeycapsProject";
 
 const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
@@ -50,5 +51,6 @@ export const projects = [
     description:
       "Took part in designing and building a mobile parklet that ran along Ocean Ave.",
     image: "https://live.staticflickr.com/1634/24337360616_cb95a9141b_b.jpg",
+    detailedPage: ParkletProject,
   },
 ];

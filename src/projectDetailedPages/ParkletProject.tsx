@@ -1,14 +1,6 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
 
-const imageMap = import.meta.glob(
-  "../assets/images/parklet/*.{png,jpeg,jpg,svg}",
-  {
-    eager: true,
-    import: "default",
-  }
-) as Record<string, string>;
-
 export function ParkletProject() {
   return (
     <BlogLayout title="Designing in Public: Ocean Avenue Mobile Parklet">

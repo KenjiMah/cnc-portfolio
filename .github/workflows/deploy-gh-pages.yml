@@ -20,7 +20,7 @@ permissions:
 # Allow only one concurrent deployment, skipping runs queued between the run in progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to let them finish.
 concurrency:
-  group: "gh-pages-deploy-${{ github.ref }}" # Group by branch to allow deploys from other branches if needed
+  group: "gh-pages-deploy-${{ github.ref }}" # Group by branch
   cancel-in-progress: false
 
 jobs:
@@ -72,8 +72,7 @@ jobs:
           echo "Using VITE_BASE_URL=${{ env.VITE_BASE_URL }}"
           npm run build -- --base=${{ env.VITE_BASE_URL }}
         env:
-          # You can add other build-time environment variables here if needed
-          # NODE_ENV: production # Vite usually sets this automatically for builds
+          NODE_ENV: production # Ensures Vite builds in production mode
 
       - name: Create .nojekyll file
         run: touch ./dist/.nojekyll

@@ -27,7 +27,14 @@ function LeftCol() {
 
         <h3 className="font-semibold text-zinc-100 mb-1">📜 Certifications</h3>
         <ul className="list-disc pl-4 mb-3">
-          <li>AWS Certified Developer</li>
+          <li>
+            <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/8d6e62057dcb4d64bc174f0c5dbe5af5"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              AWS Certified Developer
+            </a>
+          </li>
         </ul>
 
         <h3 className="font-semibold text-zinc-100 mb-1">📍 Location</h3>
@@ -87,6 +94,7 @@ function RightCol() {
             <img
               src={`${import.meta.env.BASE_URL}breinify_inc__logo.png`}
               alt="Breinify"
+              rel="noopener noreferrer"
               className="w-20 h-20 rounded-full object-contain mb-4 border border-white bg-white self-center"
             />
           </TooltipLinkWrapper>
@@ -97,6 +105,7 @@ function RightCol() {
             <img
               src={`${import.meta.env.BASE_URL}sensagrate_logo.png`}
               alt="Sensagrate"
+              rel="noopener noreferrer"
               className="w-20 h-20 rounded-full object-contain mb-4 border border-white bg-white self-center p-0.5"
             />
           </TooltipLinkWrapper>

@@ -6,7 +6,6 @@ import { IconLinks } from "./IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
 import { Projects } from "./Projects";
 import { Routes, Route } from "react-router-dom";
-// import BackgroundImage from "/background.jpg";
 
 function App() {
   return (

@@ -16,3 +16,6 @@ dist/
 
 # IDE configs (optional)
 .vscode/
+
+#ignore all mac OS system files
+**/.DS_Store

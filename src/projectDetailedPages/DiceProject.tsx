@@ -144,12 +144,46 @@ export function DiceProject() {
           alt="Dice progress"
           className="mb-4 max-w-[250px] rounded shadow-sm"
         />
+        <ExpandableImage
+          src={imageMap["../assets/images/dice/chamferFinish.jpeg"]}
+          alt="Dice progress"
+          className="mb-4 max-w-[250px] rounded shadow-sm"
+        />
       </div>
-
-      <p className="italic text-sm text-gray-600">
-        More details, measurements, and pictures to come — including the
-        chamfering and polishing steps.
+      <h2 className="text-2xl font-semibold mt-10 mb-4">
+        Step 6: Tumbling and Polishing
+      </h2>
+      <p className="mb-6 text-base leading-relaxed">
+        With the machining complete, I moved on to finishing the surface. To
+        polish the dice, I placed it in a vibratory tumbler filled with{" "}
+        <strong>cylindrical ceramic media</strong>. This type of media is ideal
+        for smoothing out tool marks and creating a soft satin finish without
+        removing too much material or rounding the sharp edges.
       </p>
+      <p className="mb-6 text-base leading-relaxed">
+        The tumbling process ran for several days to ensure an even polish on
+        all faces. While slower than hand-polishing, this method offers a
+        consistent surface finish that blends the chamfers, drilled faces, and
+        edges beautifully. I occasionally checked the progress and rinsed the
+        dice to remove slurry buildup between cycles.
+      </p>
+      <p className="mb-6 text-base leading-relaxed">
+        The result is a smooth, even finish that highlights the precision of the
+        machining underneath — a tactile reminder that this dice wasn’t just
+        machined, but carefully refined.
+      </p>
+      <div className="flex place-self-center gap-6">
+        <ExpandableImage
+          src={imageMap["../assets/images/dice/tumblerPrep.jpeg"]}
+          alt="Dice progress"
+          className="mb-4 max-w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/dice/tumblerStart.jpeg"]}
+          alt="Dice progress"
+          className="mb-4 max-w-[250px] rounded shadow-sm"
+        />
+      </div>
     </BlogLayout>
   );
 }

@@ -3,6 +3,7 @@
 import { Canvas, useThree } from "@react-three/fiber";
 import { useLoader } from "@react-three/fiber";
 import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
 import { OrbitControls, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import { PerspectiveCamera, Vector3 } from "three";
@@ -14,7 +15,12 @@ type ModelViewerProps = {
 };
 
 const Scene = ({ modelPath }: { modelPath: string }) => {
-  const obj = useLoader(OBJLoader, modelPath);
+  const mtlPath = modelPath.replace(".obj", ".mtl");
+  const materials = useLoader(MTLLoader, mtlPath);
+   const obj = useLoader(OBJLoader, modelPath, (loader) => {
+    materials.preload();
+    loader.setMaterials(materials);
+  });
   return <primitive object={obj} scale={0.4} />;
 };
 

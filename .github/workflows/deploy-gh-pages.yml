@@ -1,0 +1,98 @@
+name: Deploy Vite site to GitHub Pages
+
+on:
+  # Runs on pushes targeting the main branch
+  push:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# and to allow turnstyle to read action history.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read # Required for softprops/turnstyle
+
+# Allow only one concurrent deployment, skipping runs queued between the run in progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to let them finish.
+concurrency:
+  group: "gh-pages-deploy-${{ github.ref }}" # Group by branch
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit # Consider 'block' after testing
+
+      - name: Throttle Deployments (max 1 per 10 minutes on main branch)
+        if: github.ref == 'refs/heads/main' # Only throttle for main branch deployments
+        uses: softprops/turnstyle@v1
+        with:
+          continue-after-seconds: 600 # 10 minutes
+          poll-interval-seconds: 10
+          same-branch-only: true # Ensures it only checks history for the current branch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Using LTS Node 20.x. Change to '22' if you specifically need latest.
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci # 'ci' is generally preferred for CI environments
+
+      - name: Determine Base URL for Vite
+        id: base_url
+        run: |
+          if [[ "${{ github.repository }}" == "${{ github.repository_owner }}/${{ github.repository_owner }}.github.io" ]]; then
+            echo "VITE_BASE_URL=/" >> $GITHUB_ENV
+            echo "Calculated VITE_BASE_URL: /"
+          else
+            echo "VITE_BASE_URL=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
+            echo "Calculated VITE_BASE_URL: /${{ github.event.repository.name }}/"
+          fi
+
+      - name: Build Vite project
+        run: |
+          echo "Using VITE_BASE_URL=${{ env.VITE_BASE_URL }}"
+          npm run build -- --base=${{ env.VITE_BASE_URL }}
+        env:
+          NODE_ENV: production # Ensures Vite builds in production mode
+
+      - name: Create .nojekyll file
+        run: touch ./dist/.nojekyll
+        # This prevents GitHub Pages from running Jekyll, which can sometimes interfere.
+
+      # Optional: If your Vite app is a Single Page Application (SPA) with client-side routing (e.g., Vue Router, React Router)
+      # This step helps GitHub Pages handle routes correctly by redirecting all 404s to index.html.
+      - name: Create 404.html for SPA fallback (optional)
+        if: success() # Only run if build succeeded
+        run: cp ./dist/index.html ./dist/404.html
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite's default build output directory is 'dist'
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

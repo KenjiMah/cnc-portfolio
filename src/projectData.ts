@@ -1,4 +1,4 @@
-import { BasketballKeycapProject } from "./projectDetailedPages/BasketballKeycapProject";
+// import { BasketballKeycapProject } from "./projectDetailedPages/BasketballKeycapProject";
 import { DiceProject } from "./projectDetailedPages/DiceProject";
 import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
 import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";

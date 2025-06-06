@@ -1,3 +1,4 @@
+import { BasketballKeycapProject } from "./projectDetailedPages/BasketballKeycapProject";
 import { DiceProject } from "./projectDetailedPages/DiceProject";
 import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
 import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";
@@ -10,6 +11,17 @@ const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
 }) as Record<string, string>;
 
 export const projects = [
+  {
+    id: "basketballKeycap",
+    title: "Basketball Keycap",
+    projectType: "Case Study",
+    description:
+      "Designed and milled a basketball keycap for a custom keyboard, with a focus on precision and aesthetics.",
+    // Placeholder image, replace with actual image path
+    image:
+      imageMap["./assets/images/basketballKeycap/BasketballKeycapModel.png"],
+    // detailedPage: BasketballKeycapProject,
+  },
   {
     id: "dice",
     title: "Precise Dice",

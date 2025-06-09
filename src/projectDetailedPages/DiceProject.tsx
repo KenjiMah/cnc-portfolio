@@ -20,9 +20,7 @@ export function DiceProject() {
         detail demanded a level of care that rivals CNC work.
       </p>
       {/* Model Viewer */}
-      <div className="w-full md:w-[600px] aspect-[3/2] md:float-right md:ml-8 mb-6">
-        <ModelViewer modelPath={"./models/The Dice v6.obj"} />
-      </div>
+      <ModelViewer modelPath={"./models/The Dice v6.obj"} />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 1: Planning and CAD Modeling
       </h2>

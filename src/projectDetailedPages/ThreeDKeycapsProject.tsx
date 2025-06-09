@@ -12,14 +12,14 @@ const imageMap = import.meta.glob(
 export function ThreeDKeycapsProject() {
   return (
     <BlogLayout title="Exploring 3D Printing: From Failures to Painted Keycaps">
-      <ExpandableImage
-        src={imageMap["../assets/images/poroKeycaps/failedAttempt.jpeg"]}
-        alt="Failed 3D print layers"
-        className="float-right ml-6 max-w-[250px] rounded shadow-sm"
-      />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 1: First Prints — Beautiful Failures
       </h2>
+      <ExpandableImage
+        src={imageMap["../assets/images/poroKeycaps/failedAttempt.jpeg"]}
+        alt="Failed 3D print layers"
+        className="sm:float-right sm:ml-6 mb-4 w-full xs:w-[100px] sm:w-[180px] md:w-[200px] rounded shadow-sm"
+      />
       <p className="mb-6 text-base leading-relaxed">
         I started my journey into 3D printing by downloading a few STL files
         from the internet—some figurines, a few custom keycaps. I prepped them
@@ -55,7 +55,7 @@ export function ThreeDKeycapsProject() {
       <ExpandableImage
         src={imageMap["../assets/images/poroKeycaps/progress1.jpeg"]}
         alt="Curing station"
-        className="place-self-center max-w-[250px] rounded shadow-sm"
+        className="place-self-center md:ml-6 mb-4 w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
       />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 4: Painting the Army
@@ -71,12 +71,12 @@ export function ThreeDKeycapsProject() {
         <ExpandableImage
           src={imageMap["../assets/images/poroKeycaps/progress2.jpeg"]}
           alt="Painted keycaps"
-          className=" max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/poroKeycaps/poroKeycaps.jpeg"]}
           alt="Painted keycaps"
-          className=" max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">Takeaways</h2>

@@ -26,19 +26,11 @@ export function MaedaCrestProject() {
         <strong>scribe</strong> to outline the crest directly onto the aluminum
         surface.
       </p>
-
-      <div className="ml-8 md:float-right border-2 border-white w-[300px] h-[200px] lg:w-[600px] lg:h-[400px]">
-        <ModelViewer
-          modelPath={"./models/MaedaCrest.obj"}
-          camVectorInit={[
-            1.274338633579242, 1.0589975408652075, 3.4108972364967296,
-          ]}
-          targetVectorInit={[
-            1.3021851080325146, 0.9718734756132009, -0.49528734463821583,
-          ]}
-        />
-      </div>
-
+      <ModelViewer
+        modelPath={"./models/MaedaCrest.obj"}
+        camVectorInit={[1.27, 1.06, 3.41]}
+        targetVectorInit={[1.3, 0.97, -0.5]}
+      />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 2: Rough Cutting with Bandsaw
       </h2>
@@ -76,12 +68,12 @@ export function MaedaCrestProject() {
         <ExpandableImage
           src={imageMap["../assets/images/maedaCrest/progress1.jpeg"]}
           alt="Detailed cutout of Maeda crest"
-          className="max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/maedaCrest/Crest.jpeg"]}
           alt="Finished Maeda crest with surface finish"
-          className="max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
     </BlogLayout>

@@ -7,6 +7,7 @@ import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
 import { OrbitControls, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import { PerspectiveCamera, Vector3 } from "three";
+import { ModelWrapper } from "./ModelWrapper";
 
 type ModelViewerProps = {
   modelPath: string;
@@ -17,7 +18,7 @@ type ModelViewerProps = {
 const Scene = ({ modelPath }: { modelPath: string }) => {
   const mtlPath = modelPath.replace(".obj", ".mtl");
   const materials = useLoader(MTLLoader, mtlPath);
-   const obj = useLoader(OBJLoader, modelPath, (loader) => {
+  const obj = useLoader(OBJLoader, modelPath, (loader) => {
     materials.preload();
     loader.setMaterials(materials);
   });
@@ -142,7 +143,7 @@ export function ModelViewer({
   };
 
   return (
-    <>
+    <ModelWrapper>
       <div className="relative w-full h-full bg-[#111]">
         <Canvas
           camera={{ position: camVectorInit, fov: 60 }}
@@ -211,6 +212,6 @@ export function ModelViewer({
           </div>
         </div>
       )}
-    </>
+    </ModelWrapper>
   );
 }

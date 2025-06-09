@@ -23,13 +23,11 @@ export function MetalLetterProject() {
         carefully cut out the paper and taped it directly to the aluminum stock.
         This made it easy to trace and cut the exact profile by hand.
       </p>
-      <div className="ml-8 md:float-right border-2 border-white w-[300px] h-[200px] lg:w-[600px] lg:h-[400px]">
-        <ModelViewer
-          modelPath={"./models/Basic Metal Project.obj"}
-          camVectorInit={[2.23, 4.12, 3.31]}
-          targetVectorInit={[0.76, 0.76, -0.88]}
-        />
-      </div>
+      <ModelViewer
+        modelPath={"./models/Basic Metal Project.obj"}
+        camVectorInit={[2.23, 4.12, 3.31]}
+        targetVectorInit={[0.76, 0.76, -0.88]}
+      />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 2: Preparing the Aluminum Stock
       </h2>
@@ -61,7 +59,7 @@ export function MetalLetterProject() {
       <ExpandableImage
         src={imageMap["../assets/images/metalLetter/drillPress.jpeg"]}
         alt="Dice progress"
-        className="place-self-center max-w-[250px] rounded shadow-sm"
+        className="place-self-center md:ml-6 mb-4 w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
       />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 4: Rough Cutting the Letter Profile
@@ -88,12 +86,12 @@ export function MetalLetterProject() {
         <ExpandableImage
           src={imageMap["../assets/images/metalLetter/roughCut.jpeg"]}
           alt="Dice progress"
-          className="max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/metalLetter/Dremel.jpeg"]}
           alt="Dice progress"
-          className="max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
@@ -111,12 +109,12 @@ export function MetalLetterProject() {
         <ExpandableImage
           src={imageMap["../assets/images/metalLetter/Facing.jpeg"]}
           alt="Dice progress"
-          className="max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/metalLetter/Letter.jpeg"]}
           alt="Dice progress"
-          className="max-w-[250px] rounded shadow-sm"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
     </BlogLayout>

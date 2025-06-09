@@ -19,7 +19,8 @@ export function DiceProject() {
         mill. While it may seem straightforward, the tolerances and attention to
         detail demanded a level of care that rivals CNC work.
       </p>
-      <div className="ml-8 md:float-right border-2 border-white w-[300px] h-[200px] lg:w-[600px] lg:h-[400px]">
+      {/* Model Viewer */}
+      <div className="w-full md:w-[600px] aspect-[3/2] md:float-right md:ml-8 mb-6">
         <ModelViewer modelPath={"./models/The Dice v6.obj"} />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
@@ -46,7 +47,7 @@ export function DiceProject() {
       <ExpandableImage
         src={imageMap["../assets/images/dice/progress1.jpeg"]}
         alt="Dice progress"
-        className="float-right ml-6 mb-4 max-w-[250px] rounded shadow-sm"
+        className="float-none md:float-right md:ml-6 mb-4 w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
       />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 3: Precision Facing on the Manual Mill
@@ -83,16 +84,16 @@ export function DiceProject() {
         I referenced each face from the same corner using a precise vise and
         vice stop to maintain consistent offsets and symmetry across each face.
       </p>
-      <div className="flex place-self-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 mb-6">
         <ExpandableImage
           src={imageMap["../assets/images/dice/progress2.jpeg"]}
-          alt="Dice progress"
-          className="ml-6 mb-4 max-w-[250px] rounded shadow-sm"
+          alt="Dice progress 2"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/dice/measure.jpeg"]}
-          alt="Dice progress"
-          className="ml-6 mb-4 max-w-[250px] rounded shadow-sm"
+          alt="Measurement setup"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
@@ -114,8 +115,8 @@ export function DiceProject() {
       </p>
       <ExpandableImage
         src={imageMap["../assets/images/dice/chamferMill.png"]}
-        alt="Dice progress"
-        className="float-right ml-6 mb-4 max-w-[400px] rounded shadow-sm"
+        alt="Chamfering setup"
+        className="float-none md:float-right md:ml-6 mb-4 w-full sm:w-[280px] md:w-[400px] rounded shadow-sm"
       />
       <p className="mb-6 text-base leading-relaxed">
         We perform a{" "}
@@ -138,52 +139,81 @@ export function DiceProject() {
         coordinates that compensate for the unique geometry of the chamfer
         endmill.
       </p>
-      <div className="flex place-self-center gap-6">
+      <div className="flex flex-wrap justify-center gap-6 mb-6 w-full ">
         <ExpandableImage
           src={imageMap["../assets/images/dice/chamferProgress.jpeg"]}
-          alt="Dice progress"
-          className="mb-4 max-w-[250px] rounded shadow-sm"
+          alt="Chamfer in progress"
+          className="sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/dice/chamferFinish.jpeg"]}
-          alt="Dice progress"
-          className="mb-4 max-w-[250px] rounded shadow-sm"
+          alt="Chamfer finished"
+          className="sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 6: Tumbling and Polishing
       </h2>
+
       <p className="mb-6 text-base leading-relaxed">
         With the machining complete, I moved on to finishing the surface. To
-        polish the dice, I placed it in a vibratory tumbler filled with{" "}
-        <strong>cylindrical ceramic media</strong>. This type of media is ideal
-        for smoothing out tool marks and creating a soft satin finish without
+        polish the dice, I placed it in a <strong>rotary tumbler</strong> filled
+        with <strong>cylindrical ceramic media</strong>. This media is ideal for
+        smoothing out tool marks and creating a soft satin finish without
         removing too much material or rounding the sharp edges.
       </p>
       <p className="mb-6 text-base leading-relaxed">
         The tumbling process ran for several days to ensure an even polish on
-        all faces. While slower than hand-polishing, this method offers a
+        all faces. While slower than hand-polishing, this method provides a
         consistent surface finish that blends the chamfers, drilled faces, and
-        edges beautifully. I occasionally checked the progress and rinsed the
-        dice to remove slurry buildup between cycles.
+        edges beautifully. I occasionally paused to rinse the dice and remove
+        slurry buildup between cycles.
       </p>
       <p className="mb-6 text-base leading-relaxed">
-        The result is a smooth, even finish that highlights the precision of the
-        machining underneath — a tactile reminder that this dice wasn’t just
-        machined, but carefully refined.
+        As expected, the prolonged exposure to water and air in the tumbler led
+        to slight <strong>oxidation of the aluminum</strong>. This gave the
+        surface a muted, slightly gray tone — not accidental, but also not
+        highly controlled. The result complements the satin finish and enhances
+        the industrial, handmade feel of the piece.
       </p>
-      <div className="flex place-self-center gap-6">
+      <p className="mb-6 text-base leading-relaxed">
+        The final result is a smooth, even finish that highlights the precision
+        of the machining underneath — a tactile reminder that this dice wasn’t
+        just machined, but carefully refined.
+      </p>
+      <div className="flex flex-wrap justify-center gap-6 mb-6">
         <ExpandableImage
           src={imageMap["../assets/images/dice/tumblerPrep.jpeg"]}
-          alt="Dice progress"
-          className="mb-4 max-w-[250px] rounded shadow-sm"
+          alt="Tumbler prep"
+          description="Initial tumble setup"
+          className="float-none md:float-right md:ml-6 mb-6 w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
         <ExpandableImage
           src={imageMap["../assets/images/dice/tumblerStart.jpeg"]}
-          alt="Dice progress"
-          className="mb-4 max-w-[250px] rounded shadow-sm"
+          alt="Tumbler start"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/dice/24HrProgress.jpeg"]}
+          alt="24h tumble"
+          description="After 24 hours"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/dice/96HrProgress.jpeg"]}
+          alt="96h tumble"
+          description="After 96 hours"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
         />
       </div>
+
+      {/* Final Image */}
+      <ExpandableImage
+        src={imageMap["../assets/images/dice/Finished.jpeg"]}
+        alt="Finished dice"
+        description="Final product"
+        className="mx-auto w-full sm:w-[300px] md:w-[350px] rounded shadow-sm mb-12"
+      />
     </BlogLayout>
   );
 }

@@ -28,7 +28,7 @@ export const projects = [
     projectType: "Case Study",
     description:
       'Precision practice for facing a perfect cube with -0.0003" tolerance',
-    image: imageMap["./assets/images/dice/progress2.jpeg"],
+    image: imageMap["./assets/images/dice/Finished.jpeg"],
     detailedPage: DiceProject,
   },
   {

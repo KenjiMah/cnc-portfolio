@@ -19,16 +19,19 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { ChevronDown, Filter, SortAsc, SortDesc } from "lucide-react";
+import { ChevronDown, Filter, SortAsc } from "lucide-react";
+import { projects, type ProjectEntry } from "./projectData";
 
-const allTags = [
-  "Fabrication",
-  "CAD",
-  "Woodworking",
-  "CNC",
-  "Architecture",
-  "Metalwork",
-];
+const allTags = getAllUniqueTags(projects);
+function getAllUniqueTags(projects: ProjectEntry[]): string[] {
+  const tagSet = new Set<string>();
+
+  projects.forEach((project) => {
+    project.tags?.forEach((tag) => tagSet.add(tag));
+  });
+
+  return Array.from(tagSet).sort();
+}
 const sortOptions = [
   { value: "date-desc", label: "Newest First" },
   { value: "date-asc", label: "Oldest First" },
@@ -46,7 +49,9 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
 
   function toggleTag(tag: string) {
     const newTags = selectedTags.includes(tag)
-      ? selectedTags.filter((t) => t !== tag)
+      ? selectedTags.filter(
+          (t) => t?.toLocaleLowerCase() !== tag?.toLocaleLowerCase()
+        )
       : [...selectedTags, tag];
     setSelectedTags(newTags);
     onChange(newTags, sort);
@@ -55,14 +60,6 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
   function handleSortChange(value: string) {
     setSort(value);
     onChange(selectedTags, value);
-  }
-
-  function oklch(
-    arg0: number,
-    arg1: number,
-    arg2: number
-  ): import("csstype").Property.BorderColor | undefined {
-    throw new Error("Function not implemented.");
   }
 
   return (

@@ -32,6 +32,7 @@ export const projects: ProjectEntry[] = [
     image:
       imageMap["./assets/images/basketballKeycap/BasketballKeycapModel.png"],
     // detailedPage: BasketballKeycapProject,
+    tags: ["3D Printing", "CNC Milling", "Keycap Design"],
     lastUpdatedUnix: 1749575996,
   },
   {
@@ -41,6 +42,7 @@ export const projects: ProjectEntry[] = [
     description:
       'Precision practice for facing a perfect cube with -0.0003" tolerance',
     image: imageMap["./assets/images/dice/Finished.jpeg"],
+    tags: ["CNC Milling", "Aluminum"],
     lastUpdatedUnix: 1749575996,
   },
   {
@@ -49,6 +51,7 @@ export const projects: ProjectEntry[] = [
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
     image: imageMap["./assets/images/metalLetter/Letter.jpeg"],
+    tags: ["Aluminum"],
     lastUpdatedUnix: 1749575965,
   },
   {
@@ -57,6 +60,7 @@ export const projects: ProjectEntry[] = [
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
     image: imageMap["./assets/images/maedaCrest/Crest.jpeg"],
+    tags: ["Aluminum"],
     lastUpdatedUnix: 1749575966,
   },
   {
@@ -66,6 +70,7 @@ export const projects: ProjectEntry[] = [
     description:
       "Printed some cute looking keycaps using the ELEGOO Saturn 2 MSLA 3D Printer.",
     image: imageMap["./assets/images/poroKeycaps/poroKeycaps.jpeg"],
+    tags: ["3D Printing", "SLA"],
     lastUpdatedUnix: 1749575936,
   },
   {
@@ -75,6 +80,7 @@ export const projects: ProjectEntry[] = [
     description:
       "Took part in designing and building a mobile parklet that ran along Ocean Ave.",
     image: "https://live.staticflickr.com/1634/24337360616_cb95a9141b_b.jpg",
+    tags: ["Woodworking", "Design in Public"],
     lastUpdatedUnix: 1749575926,
   },
 ];

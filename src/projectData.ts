@@ -15,6 +15,7 @@ export interface ProjectEntry {
   title: string;
   projectType: string;
   description: string;
+  tags?: string[]; // Optional tags for categorization
   image: string; // or possibly something like HTMLImageElement or a custom type if you're not using a simple path
   detailedPage?: React.ComponentType; // Uncomment and type accordingly if needed
   lastUpdatedUnix: number;

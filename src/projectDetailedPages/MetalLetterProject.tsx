@@ -1,6 +1,7 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
 import { ModelViewer } from "../customComponents/ModelViewer";
+import type { ProjectEntry } from "@/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/metalLetter/*.{png,jpeg,jpg,svg}",
@@ -10,9 +11,12 @@ const imageMap = import.meta.glob(
   }
 ) as Record<string, string>;
 
-export function MetalLetterProject() {
+export function MetalLetterProject({ lastUpdatedUnix }: ProjectEntry) {
   return (
-    <BlogLayout title="Learning the Basics: Letter Project">
+    <BlogLayout
+      title="Learning the Basics: Letter Project"
+      lastUpdatedUnix={lastUpdatedUnix}
+    >
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 1: CAD Modeling and Blueprint Preparation
       </h2>

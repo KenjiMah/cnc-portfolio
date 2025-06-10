@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { projects } from "./projectData";
+import { PROJECT_MAPPER, projects } from "./projectData";
 import type { ReactNode } from "react";
 import { Button } from "./components/ui/button";
 import { ROUTES } from "./constants";
@@ -28,8 +28,16 @@ function Wrapper({ children }: { children: ReactNode }) {
 }
 
 export function DetailedProject() {
-  const { projectId } = useParams();
-  const matchingProject = projects.find((project) => project.id === projectId);
-  const { detailedPage: DetailedPage } = matchingProject || {};
-  return <Wrapper>{DetailedPage ? <DetailedPage /> : <EmptyPage />}</Wrapper>;
+  const { projectId = "" } = useParams<{ projectId: string }>();
+  const matchingProject = projects.find((p) => p.id === projectId);
+  const ProjectComponent = PROJECT_MAPPER[projectId];
+  return (
+    <Wrapper>
+      {ProjectComponent && matchingProject ? (
+        <ProjectComponent {...matchingProject} />
+      ) : (
+        <EmptyPage />
+      )}
+    </Wrapper>
+  );
 }

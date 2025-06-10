@@ -10,7 +10,17 @@ const imageMap = import.meta.glob("./assets/images/**/*.{png,jpeg,jpg,svg}", {
   import: "default",
 }) as Record<string, string>;
 
-export const projects = [
+export interface ProjectEntry {
+  id: string;
+  title: string;
+  projectType: string;
+  description: string;
+  image: string; // or possibly something like HTMLImageElement or a custom type if you're not using a simple path
+  detailedPage?: React.ComponentType; // Uncomment and type accordingly if needed
+  lastUpdatedUnix: number;
+}
+
+export const projects: ProjectEntry[] = [
   {
     id: "basketballKeycap",
     title: "Basketball Keycap",
@@ -21,6 +31,7 @@ export const projects = [
     image:
       imageMap["./assets/images/basketballKeycap/BasketballKeycapModel.png"],
     // detailedPage: BasketballKeycapProject,
+    lastUpdatedUnix: 1749575996,
   },
   {
     id: "dice",
@@ -29,7 +40,7 @@ export const projects = [
     description:
       'Precision practice for facing a perfect cube with -0.0003" tolerance',
     image: imageMap["./assets/images/dice/Finished.jpeg"],
-    detailedPage: DiceProject,
+    lastUpdatedUnix: 1749575996,
   },
   {
     id: "metalLetter",
@@ -37,7 +48,7 @@ export const projects = [
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
     image: imageMap["./assets/images/metalLetter/Letter.jpeg"],
-    detailedPage: MetalLetterProject,
+    lastUpdatedUnix: 1749575965,
   },
   {
     id: "maedaCrest",
@@ -45,7 +56,7 @@ export const projects = [
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
     image: imageMap["./assets/images/maedaCrest/Crest.jpeg"],
-    detailedPage: MaedaCrestProject,
+    lastUpdatedUnix: 1749575966,
   },
   {
     id: "poroKeycaps",
@@ -54,7 +65,7 @@ export const projects = [
     description:
       "Printed some cute looking keycaps using the ELEGOO Saturn 2 MSLA 3D Printer.",
     image: imageMap["./assets/images/poroKeycaps/poroKeycaps.jpeg"],
-    detailedPage: ThreeDKeycapsProject,
+    lastUpdatedUnix: 1749575936,
   },
   {
     id: "parklet",
@@ -63,6 +74,18 @@ export const projects = [
     description:
       "Took part in designing and building a mobile parklet that ran along Ocean Ave.",
     image: "https://live.staticflickr.com/1634/24337360616_cb95a9141b_b.jpg",
-    detailedPage: ParkletProject,
+    lastUpdatedUnix: 1749575926,
   },
 ];
+
+export const PROJECT_MAPPER: Record<
+  string,
+  React.ComponentType<ProjectEntry>
+> = {
+  // basketballKeycap: BasketballKeycapProject,
+  dice: DiceProject,
+  metalLetter: MetalLetterProject,
+  maedaCrest: MaedaCrestProject,
+  poroKeycaps: ThreeDKeycapsProject,
+  parklet: ParkletProject,
+};

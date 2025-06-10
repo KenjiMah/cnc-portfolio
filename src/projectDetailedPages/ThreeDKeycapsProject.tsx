@@ -1,5 +1,6 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
+import type { ProjectEntry } from "@/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/poroKeycaps/*.{png,jpeg,jpg,svg}",
@@ -9,9 +10,12 @@ const imageMap = import.meta.glob(
   }
 ) as Record<string, string>;
 
-export function ThreeDKeycapsProject() {
+export function ThreeDKeycapsProject({ lastUpdatedUnix }: ProjectEntry) {
   return (
-    <BlogLayout title="Exploring 3D Printing: From Failures to Painted Keycaps">
+    <BlogLayout
+      title="Exploring 3D Printing: From Failures to Painted Keycaps"
+      lastUpdatedUnix={lastUpdatedUnix}
+    >
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 1: First Prints — Beautiful Failures
       </h2>

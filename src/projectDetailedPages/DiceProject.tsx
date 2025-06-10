@@ -1,6 +1,7 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
 import { ModelViewer } from "../customComponents/ModelViewer";
+import type { ProjectEntry } from "@/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/dice/*.{png,jpeg,jpg,svg}",
@@ -10,9 +11,12 @@ const imageMap = import.meta.glob(
   }
 ) as Record<string, string>;
 
-export function DiceProject() {
+export function DiceProject({ lastUpdatedUnix }: ProjectEntry) {
   return (
-    <BlogLayout title="Machining a Precision Aluminum Dice">
+    <BlogLayout
+      title="Machining a Precision Aluminum Dice"
+      lastUpdatedUnix={lastUpdatedUnix}
+    >
       <p className="mb-6 text-lg leading-relaxed">
         In this project, I wanted to challenge myself with something deceptively
         simple: making a precision dice cube out of aluminum using a manual

@@ -1,9 +1,13 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
+import type { ProjectEntry } from "@/projectData";
 
-export function ParkletProject() {
+export function ParkletProject({ lastUpdatedUnix }: ProjectEntry) {
   return (
-    <BlogLayout title="Designing in Public: Ocean Avenue Mobile Parklet">
+    <BlogLayout
+      title="Designing in Public: Ocean Avenue Mobile Parklet"
+      lastUpdatedUnix={lastUpdatedUnix}
+    >
       <p className="mb-6 text-base leading-relaxed">
         The Mobile Ocean Avenue Parklet was a collaborative design-build project
         led by Youth Art Exchange (YAX) and funded by a mix of community

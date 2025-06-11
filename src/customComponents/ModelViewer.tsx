@@ -8,12 +8,33 @@ import { OrbitControls, GizmoHelper, GizmoViewport } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import { PerspectiveCamera, Vector3 } from "three";
 import { ModelWrapper } from "./ModelWrapper";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type ModelViewerProps = {
   modelPath: string;
   camVectorInit?: [number, number, number];
   targetVectorInit?: [number, number, number];
 };
+
+function roundAndFormatVector(vector: Vector3): string {
+  return vector
+    .toArray()
+    .map((v) => v.toFixed(2))
+    .join(", ");
+}
+
+function prepareCopyText(cameraPosition: Vector3, target: Vector3): string {
+  if (!cameraPosition || !target) {
+    throw new Error("Camera position or target is not defined.");
+  }
+  return `camVectorInit={${roundAndFormatVector(
+    cameraPosition
+  )}}\ntargetVectorInit={${roundAndFormatVector(target)}}`;
+}
 
 const Scene = ({ modelPath }: { modelPath: string }) => {
   const mtlPath = modelPath.replace(".obj", ".mtl");
@@ -58,8 +79,7 @@ export function ModelViewer({
   const [savedTarget, setSavedTarget] = useState(
     new Vector3(...targetVectorInit)
   );
-  // use this console log to get initializations of the model
-  // console.log(savedCameraPos, savedTarget);
+
   const embeddedControlsRef = useRef<typeof OrbitControls>(null);
   const fullscreenControlsRef = useRef<typeof OrbitControls>(null);
 
@@ -157,6 +177,34 @@ export function ModelViewer({
         </Canvas>
 
         <div className="absolute top-2 right-2 flex space-x-2 z-10">
+          {process.env.NODE_ENV === "development" && (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <button
+                  onClick={() => {
+                    try {
+                      navigator.clipboard.writeText(
+                        prepareCopyText(
+                          embeddedControlsRef.current?.object.position,
+                          embeddedControlsRef.current?.target
+                        )
+                      );
+                      console.log("Text copied to clipboard successfully!");
+                    } catch (err) {
+                      console.error("Failed to copy text: ", err);
+                    }
+                  }}
+                  className="bg-black text-white rounded px-3 py-1 hover:bg-gray-800 transition cursor-pointer"
+                  aria-label="Copy Camera and target vectors to clipboard"
+                >
+                  <i className="fa-solid fa-copy ml-2" /> Copy view vectors
+                </button>
+              </TooltipTrigger>
+              <TooltipContent>
+                this button is only seen in development mode
+              </TooltipContent>
+            </Tooltip>
+          )}
           <button
             onClick={resetView}
             className="bg-black text-white rounded px-3 py-1 hover:bg-gray-800 transition cursor-pointer"

@@ -1,4 +1,5 @@
 // import { BasketballKeycapProject } from "./projectDetailedPages/BasketballKeycapProject";
+import { CncLetterProject } from "./projectDetailedPages/CncLetterProject";
 import { DiceProject } from "./projectDetailedPages/DiceProject";
 import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
 import { MetalLetterProject } from "./projectDetailedPages/MetalLetterProject";
@@ -34,6 +35,17 @@ export const projects: ProjectEntry[] = [
     // detailedPage: BasketballKeycapProject,
     tags: ["3D Printing", "CNC Milling", "Keycap Design"],
     lastUpdatedUnix: 1749575996,
+  },
+  {
+    id: "CNCLetter",
+    title: "CNC Letter",
+    projectType: "Case Study",
+    description: "Milled a custom letter focusing on the CNC process.",
+    // Placeholder image, replace with actual image path
+    image: imageMap["./assets/images/cncLetter/CNCFinished.jpeg"],
+    // detailedPage: BasketballKeycapProject,
+    tags: ["CNC Milling", "Aluminum"],
+    lastUpdatedUnix: 1749597493,
   },
   {
     id: "dice",
@@ -90,6 +102,7 @@ export const PROJECT_MAPPER: Record<
   React.ComponentType<ProjectEntry>
 > = {
   // basketballKeycap: BasketballKeycapProject,
+  CNCLetter: CncLetterProject,
   dice: DiceProject,
   metalLetter: MetalLetterProject,
   maedaCrest: MaedaCrestProject,

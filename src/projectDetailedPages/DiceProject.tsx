@@ -24,7 +24,7 @@ export function DiceProject({ lastUpdatedUnix }: ProjectEntry) {
         detail demanded a level of care that rivals CNC work.
       </p>
       {/* Model Viewer */}
-      <ModelViewer modelPath={"./models/The Dice v6.obj"} />
+      <ModelViewer modelPath={"./models/The Dice.obj"} />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 1: Planning and CAD Modeling
       </h2>

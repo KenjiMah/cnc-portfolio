@@ -1,6 +1,7 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
 import { ModelViewer } from "../customComponents/ModelViewer";
+import type { ProjectEntry } from "@/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/cncLetter/*.{png,jpeg,jpg,svg}",
@@ -10,9 +11,12 @@ const imageMap = import.meta.glob(
   }
 ) as Record<string, string>;
 
-export function CncLetterProject() {
+export function CncLetterProject({ lastUpdatedUnix }: ProjectEntry) {
   return (
-    <BlogLayout title="First CAM Project: Letter Carved on Tormach PCNC 1100">
+    <BlogLayout
+      title="First CAM Project: Letter Carved on Tormach PCNC 1100"
+      lastUpdatedUnix={lastUpdatedUnix}
+    >
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Introduction & CAM Focus
       </h2>
@@ -123,14 +127,36 @@ export function CncLetterProject() {
       </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 6: Remove Tabs & Final Finishing (To Be Added)
+        Step 6: Remove Tabs & Final Finishing
       </h2>
-      <p className="mb-6 text-base leading-relaxed italic">
-        *Coming soon:* After the contour cut, I’ll remove the support tabs, then
-        grind and sand the edges smooth to achieve the final polished finish.
-        I’ll update this section with process details, tools used, and
-        before/after images once it’s complete.
+      <p className="mb-6 text-base leading-relaxed">
+        After the contour cut, I removed the support tabs with a{" "}
+        <strong>jeweler’s saw</strong> to preserve the shell’s outer profile.
+        Once the tabs were off, I refined the edges on a{" "}
+        <strong>grinding wheel</strong> to smooth out any remaining material and
+        clean up the shape. Finally, I hand-sanded the edges for a refined
+        finish.
       </p>
+      <div className="flex flex-wrap justify-center gap-6 mb-6">
+        <ExpandableImage
+          src={imageMap["../assets/images/cncLetter/tab_removal1.jpeg"]}
+          alt="Removing tabs with jeweler's saw"
+          description="Starting to saw off tabs"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/cncLetter/tab_removal2.jpeg"]}
+          alt="Grinding tabs smooth"
+          description="Grinding wheel cleanup"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/cncLetter/finished.jpeg"]}
+          alt="Final polished letter"
+          description="Finished, polished letter"
+          className="w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
+        />
+      </div>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Final CAM Summary & Takeaways

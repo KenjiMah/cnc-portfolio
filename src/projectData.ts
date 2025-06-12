@@ -32,7 +32,6 @@ export const projects: ProjectEntry[] = [
     // Placeholder image, replace with actual image path
     image:
       imageMap["./assets/images/basketballKeycap/BasketballKeycapModel.png"],
-    // detailedPage: BasketballKeycapProject,
     tags: ["3D Printing", "CNC Milling", "Keycap Design"],
     lastUpdatedUnix: 1749575996,
   },
@@ -41,11 +40,9 @@ export const projects: ProjectEntry[] = [
     title: "CNC Letter",
     projectType: "Case Study",
     description: "Milled a custom letter focusing on the CNC process.",
-    // Placeholder image, replace with actual image path
-    image: imageMap["./assets/images/cncLetter/CNCFinished.jpeg"],
-    // detailedPage: BasketballKeycapProject,
-    tags: ["CNC Milling", "Aluminum"],
-    lastUpdatedUnix: 1749597493,
+    image: imageMap["./assets/images/cncLetter/finished.jpeg"],
+    tags: ["CNC Milling", "Aluminum", "CAM"],
+    lastUpdatedUnix: 1749754603,
   },
   {
     id: "dice",

@@ -24,7 +24,11 @@ export function DiceProject({ lastUpdatedUnix }: ProjectEntry) {
         detail demanded a level of care that rivals CNC work.
       </p>
       {/* Model Viewer */}
-      <ModelViewer modelPath={"./models/The Dice.obj"} />
+      <ModelViewer
+        modelPath={"./models/The Dice.obj"}
+        camVectorInit={[1.936, 2.03, 2.03]}
+        targetVectorInit={[0.0, 0.0, 0.0]}
+      />
       <h2 className="text-2xl font-semibold mt-10 mb-4">
         Step 1: Planning and CAD Modeling
       </h2>

@@ -23,7 +23,7 @@ type ModelViewerProps = {
 function roundAndFormatVector(vector: Vector3): string {
   return vector
     .toArray()
-    .map((v) => v.toFixed(2))
+    .map((v) => v.toFixed(3))
     .join(", ");
 }
 
@@ -31,9 +31,9 @@ function prepareCopyText(cameraPosition: Vector3, target: Vector3): string {
   if (!cameraPosition || !target) {
     throw new Error("Camera position or target is not defined.");
   }
-  return `camVectorInit={${roundAndFormatVector(
+  return `camVectorInit={[${roundAndFormatVector(
     cameraPosition
-  )}}\ntargetVectorInit={${roundAndFormatVector(target)}}`;
+  )}]}\ntargetVectorInit={[${roundAndFormatVector(target)}]}`;
 }
 
 const Scene = ({ modelPath }: { modelPath: string }) => {
@@ -149,7 +149,8 @@ export function ModelViewer({
       <>
         <ResizeHandler />
         <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} />
+        <directionalLight position={[5, 10, 7]} intensity={1} />
+        <directionalLight position={[-5, -10, -7]} intensity={0.5} />
         <OrbitControls ref={controlsRef} enableDamping />
         <Scene modelPath={modelPath} />
         <GizmoHelper alignment="bottom-right" margin={[80, 80]}>

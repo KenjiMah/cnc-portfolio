@@ -16,7 +16,7 @@ export default function ExpandableImage({
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className={`relative group ` + className}>
+    <div className={`relative group ${className}`}>
       {/* Fullscreen overlay when expanded */}
       {expanded && (
         <div

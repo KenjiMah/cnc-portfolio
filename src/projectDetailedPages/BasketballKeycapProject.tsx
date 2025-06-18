@@ -46,8 +46,8 @@ export function BasketballKeycapProject({ lastUpdatedUnix }: ProjectEntry) {
       <div className="flex xs:flex-block justify-center gap-6 mb-6">
         <ExpandableImage
           src={imageMap["../assets/images/basketballKeycap/CAMFoam.png"]}
-          alt="Basketball Keycap CAM setup for foam"
-          description="Basketball Keycap CAM setup for foam"
+          alt="CAM setup for foam"
+          description="CAM setup for foam"
           className="w-full md:w-[200px] lg:w-[300px] rounded shadow-sm"
         />
         <ExpandableImage
@@ -71,6 +71,20 @@ export function BasketballKeycapProject({ lastUpdatedUnix }: ProjectEntry) {
         the part could be rotated consistently using a fixed stop. With these
         fixes in place, I began roughing out the actual part in 6061 aluminum.
       </p>
+      <div className="flex xs:flex-block justify-center gap-6 mb-6">
+        <ExpandableImage
+          src={imageMap["../assets/images/basketballKeycap/CAMaluminum.png"]}
+          alt="CAM setup for aluminum"
+          description="CAM setup for aluminum"
+          className="w-full md:w-[200px] lg:w-[300px] rounded shadow-sm"
+        />
+        <ExpandableImage
+          src={imageMap["../assets/images/basketballKeycap/Progress4.jpeg"]}
+          alt="Basketball Keycap aluminum progress"
+          description=""
+          className="w-full md:w-[200px] lg:w-[300px] rounded shadow-sm"
+        />
+      </div>
       <p className="mb-6 text-base leading-relaxed">
         I started by clearing out the general shape with a{" "}
         <strong>1/4” 2-flute flat end mill</strong> at aggressive speeds to

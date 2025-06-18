@@ -21,6 +21,13 @@ import {
 } from "@/components/ui/select";
 import { ChevronDown, Filter, SortAsc } from "lucide-react";
 import { projects, type ProjectEntry } from "./utils/projectData";
+import styled from "styled-components";
+
+const MyScrollableDiv = styled(CommandGroup)`
+  /* Other styles for your div */
+  color-scheme: light;
+  /* Other styled-components styles */
+`;
 
 const allTags = getAllUniqueTags(projects);
 function getAllUniqueTags(projects: ProjectEntry[]): string[] {
@@ -69,14 +76,14 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
         <PopoverTrigger asChild>
           <Button className="flex items-center gap-2">
             <Filter className="w-4 h-4" />
-            Filter
+            Filter Tags
             <ChevronDown className="w-4 h-4" />
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-64 p-2">
           <Command>
             <CommandInput placeholder="Search tags..." />
-            <CommandGroup>
+            <MyScrollableDiv className="max-h-60 overflow-y-auto ">
               {allTags.map((tag) => (
                 <CommandItem
                   key={tag}
@@ -99,7 +106,7 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
                   {tag}
                 </CommandItem>
               ))}
-            </CommandGroup>
+            </MyScrollableDiv>
           </Command>
         </PopoverContent>
       </Popover>

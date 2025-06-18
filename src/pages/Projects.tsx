@@ -14,7 +14,7 @@ export function Projects() {
     // Filter by selected tags
     if (selectedTags.length > 0) {
       filtered = filtered.filter((project) =>
-        selectedTags.some((tag) => project?.tags?.includes(tag))
+        selectedTags.every((tag) => project?.tags?.includes(tag))
       );
     }
 

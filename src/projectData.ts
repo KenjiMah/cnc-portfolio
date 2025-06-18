@@ -1,4 +1,4 @@
-// import { BasketballKeycapProject } from "./projectDetailedPages/BasketballKeycapProject";
+import { BasketballKeycapProject } from "./projectDetailedPages/BasketballKeycapProject";
 import { CncLetterProject } from "./projectDetailedPages/CncLetterProject";
 import { DiceProject } from "./projectDetailedPages/DiceProject";
 import { MaedaCrestProject } from "./projectDetailedPages/MaedaCrestProject";
@@ -98,7 +98,7 @@ export const PROJECT_MAPPER: Record<
   string,
   React.ComponentType<ProjectEntry>
 > = {
-  // basketballKeycap: BasketballKeycapProject,
+  basketballKeycap: BasketballKeycapProject,
   CNCLetter: CncLetterProject,
   dice: DiceProject,
   metalLetter: MetalLetterProject,

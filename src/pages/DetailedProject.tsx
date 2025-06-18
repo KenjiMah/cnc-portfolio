@@ -1,8 +1,8 @@
 import { Link, useParams } from "react-router-dom";
-import { PROJECT_MAPPER, projects } from "./projectData";
 import type { ReactNode } from "react";
-import { Button } from "./components/ui/button";
-import { ROUTES } from "./constants";
+import { Button } from "@/components/ui/button";
+import { ROUTES } from "@/utils/constants";
+import { PROJECT_MAPPER, projects } from "@/utils/projectData";
 
 function EmptyPage() {
   return (
@@ -16,8 +16,8 @@ function EmptyPage() {
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
-    <div className="text-left grid col-6 max-w-6xl mx-auto">
-      <div className="col-start-2 col-span-4">
+    <div className="text-left grid col-6 max-w-6xl mx-auto min-w-0">
+      <div className="col-start-2 col-span-4 bg-black min-w-0">
         <Link to={`/${ROUTES.PROJECTPAGE}`}>
           <Button>Back to projects</Button>
         </Link>

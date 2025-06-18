@@ -1,7 +1,7 @@
 import BlogLayout from "@/customComponents/BlogLayout";
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import { ModelViewer } from "@/customComponents/ModelViewer";
-import type { ProjectEntry } from "@/projectData";
+import type { ProjectEntry } from "@/utils/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/basketballKeycap/*.{png,jpeg,jpg,svg}",

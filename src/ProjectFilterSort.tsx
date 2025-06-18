@@ -20,7 +20,7 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { ChevronDown, Filter, SortAsc } from "lucide-react";
-import { projects, type ProjectEntry } from "./projectData";
+import { projects, type ProjectEntry } from "./utils/projectData";
 
 const allTags = getAllUniqueTags(projects);
 function getAllUniqueTags(projects: ProjectEntry[]): string[] {

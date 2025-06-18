@@ -1,6 +1,6 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
-import type { ProjectEntry } from "@/projectData";
+import type { ProjectEntry } from "@/utils/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/poroKeycaps/*.{png,jpeg,jpg,svg}",

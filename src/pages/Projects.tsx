@@ -1,7 +1,7 @@
-import { useMemo, useState } from "react";
-import { CNCProjectCard } from "./CNCProjectCard";
-import { projects } from "./projectData";
-import { ProjectFilterSort } from "./ProjectFilterSort"; // make sure this path is correct
+import { CNCProjectCard } from "@/CNCProjectCard";
+import { ProjectFilterSort } from "@/ProjectFilterSort";
+import { projects } from "@/utils/projectData";
+import { useMemo, useState, type SetStateAction } from "react";
 
 export function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -41,7 +41,10 @@ export function Projects() {
     <div className="max-w-6xl mx-auto">
       {/* Filter + Sort Controls */}
       <ProjectFilterSort
-        onChange={(tags, sort) => {
+        onChange={(
+          tags: SetStateAction<string[]>,
+          sort: SetStateAction<string>
+        ) => {
           setSelectedTags(tags);
           setSortOption(sort);
         }}

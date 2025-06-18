@@ -1,11 +1,11 @@
-import { About } from "./About";
-import { ROUTES } from "./constants";
+import { About } from "./pages/About";
 import "./App.css";
-import { DetailedProject } from "./DetailedProject";
-import { IconLinks } from "./IconLinks";
-import { PopoverMenubar } from "./PopoverMenubar";
-import { Projects } from "./Projects";
+import { DetailedProject } from "./pages/DetailedProject";
+import { Projects } from "./pages/Projects";
 import { Routes, Route } from "react-router-dom";
+import { IconLinks } from "./customComponents/IconLinks";
+import { PopoverMenubar } from "./PopoverMenubar";
+import { ROUTES } from "./utils/constants";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
 
       {/* OVERLAPPING CONTENT */}
 
-      <section className="-mt-20 relative z-20 bg-zinc-950 text-zinc-100 px-6 py-12">
+      <section className="-mt-20 relative z-20 bg-black text-zinc-100 px-6 py-12">
         <section className="max-w-5lg mx-auto text-zinc-100">
           <Routes>
             <Route index element={<Projects />} />

@@ -1,7 +1,7 @@
 import ExpandableImage from "@/customComponents/ExpandableImage";
 import BlogLayout from "../customComponents/BlogLayout";
 import { ModelViewer } from "../customComponents/ModelViewer";
-import type { ProjectEntry } from "@/projectData";
+import type { ProjectEntry } from "@/utils/projectData";
 
 const imageMap = import.meta.glob(
   "../assets/images/cncLetter/*.{png,jpeg,jpg,svg}",

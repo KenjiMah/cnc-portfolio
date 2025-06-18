@@ -1,7 +1,7 @@
 import { Card } from "./components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ROUTES } from "./constants";
+import { ROUTES } from "./utils/constants";
 import type { ReactNode } from "react";
 // import { useLocation } from "react-router-dom";
 

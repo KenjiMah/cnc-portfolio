@@ -1,4 +1,4 @@
-import { TooltipLinkWrapper } from "./customComponents/TooltipWrapper";
+import { TooltipLinkWrapper } from "./TooltipWrapper";
 
 export function IconLinks() {
   return (

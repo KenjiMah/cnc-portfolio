@@ -33,7 +33,7 @@ export const projects: ProjectEntry[] = [
     image:
       imageMap["./assets/images/basketballKeycap/BasketballKeycapModel.png"],
     tags: ["3D Printing", "CNC Milling", "Keycap Design"],
-    lastUpdatedUnix: 1749575996,
+    lastUpdatedUnix: 1750275382,
   },
   {
     id: "CNCLetter",

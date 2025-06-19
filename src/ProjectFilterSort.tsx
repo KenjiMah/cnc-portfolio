@@ -20,8 +20,10 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { ChevronDown, Filter, SortAsc } from "lucide-react";
-import { projects, type ProjectEntry } from "./utils/projectData";
+import { projects } from "./utils/projectData";
 import styled from "styled-components";
+import { getAllUniqueTags } from "./utils/utilFns";
+import { TOOL_TAGS } from "./utils/constants";
 
 const MyScrollableDiv = styled(CommandGroup)`
   /* Other styles for your div */
@@ -30,25 +32,70 @@ const MyScrollableDiv = styled(CommandGroup)`
 `;
 
 const allTags = getAllUniqueTags(projects);
-function getAllUniqueTags(projects: ProjectEntry[]): string[] {
-  const tagSet = new Set<string>();
-
-  projects.forEach((project) => {
-    project.tags?.forEach((tag) => tagSet.add(tag));
-  });
-
-  return Array.from(tagSet).sort();
-}
+const otherTags = allTags.filter((item) => !TOOL_TAGS.includes(item));
 const sortOptions = [
   { value: "date-desc", label: "Newest First" },
   { value: "date-asc", label: "Oldest First" },
   { value: "title-asc", label: "Title A–Z" },
   { value: "title-desc", label: "Title Z–A" },
 ];
-
+//@TODO: change the select to be a multiselect?
 type FilterSortProps = {
   onChange: (filters: string[], sort: string) => void;
 };
+
+function FilterDropdown({
+  dropdownTitle,
+  selectedTags,
+  tagOptions,
+  toggleTag,
+}: {
+  dropdownTitle: string;
+  selectedTags: string[];
+  tagOptions: string[];
+  toggleTag: (tag: string) => void;
+}) {
+  return (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button className="flex items-center gap-2">
+          <Filter className="w-4 h-4" />
+          {dropdownTitle}
+          <ChevronDown className="w-4 h-4" />
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-64 p-2">
+        <Command>
+          <CommandInput placeholder="Search tags..." />
+          <MyScrollableDiv className="max-h-60 overflow-y-auto">
+            {tagOptions.map((tag) => (
+              <CommandItem
+                key={tag}
+                onSelect={() => toggleTag(tag)}
+                className="flex items-center gap-2"
+              >
+                <div className="shrink-0">
+                  <Checkbox
+                    checked={selectedTags.includes(tag)}
+                    onCheckedChange={() => toggleTag(tag)}
+                    className="mr-2 shadow-sm"
+                    style={{
+                      backgroundColor: "white",
+                      borderColor: "#e5e5e5",
+                      padding: "0",
+                      borderRadius: "4px",
+                    }}
+                  />
+                </div>
+                {tag}
+              </CommandItem>
+            ))}
+          </MyScrollableDiv>
+        </Command>
+      </PopoverContent>
+    </Popover>
+  );
+}
 
 export function ProjectFilterSort({ onChange }: FilterSortProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -72,6 +119,7 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
   return (
     <div className="flex flex-wrap items-center gap-4 mb-6">
       {/* Filter (multi-select tags) */}
+
       <Popover>
         <PopoverTrigger asChild>
           <Button className="flex items-center gap-2">
@@ -84,7 +132,7 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
           <Command>
             <CommandInput placeholder="Search tags..." />
             <MyScrollableDiv className="max-h-60 overflow-y-auto ">
-              {allTags.map((tag) => (
+              {otherTags.map((tag) => (
                 <CommandItem
                   key={tag}
                   onSelect={() => toggleTag(tag)}
@@ -110,7 +158,12 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
           </Command>
         </PopoverContent>
       </Popover>
-
+      <FilterDropdown
+        dropdownTitle="Filter Tools"
+        selectedTags={selectedTags}
+        tagOptions={TOOL_TAGS}
+        toggleTag={toggleTag}
+      />
       {/* Sort dropdown */}
       <Select value={sort} onValueChange={handleSortChange}>
         <SelectTrigger className="w-[200px]">

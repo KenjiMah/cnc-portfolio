@@ -35,6 +35,7 @@ export const projects: ProjectEntry[] = [
     tags: [
       "CNC Machining",
       "Keycap Design",
+      "Tormach PCNC 1100",
       "CAM",
       "Aluminum",
       "Prototyping",
@@ -90,7 +91,7 @@ export const projects: ProjectEntry[] = [
       "Fusion 360",
       "Facing",
       "Chamfering",
-      "Micrometer Measurements",
+      "Micrometer",
       "Peck Drilling",
       "Tool Setup",
       "Tolerances",

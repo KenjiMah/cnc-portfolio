@@ -16,7 +16,7 @@ export default function ExpandableImage({
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className={`relative group ${className}`}>
+    <div className={`relative group h-fit ${className}`}>
       {/* Fullscreen overlay when expanded */}
       {expanded && (
         <div
@@ -37,7 +37,7 @@ export default function ExpandableImage({
         alt={alt}
         loading="lazy"
         onClick={() => setExpanded(true)}
-        className={`cursor-zoom-in transition duration-300 group-hover:brightness-90 ${className}`}
+        className={`h-fit cursor-zoom-in transition duration-300 group-hover:brightness-90 ${className}`}
       />
 
       {description && (

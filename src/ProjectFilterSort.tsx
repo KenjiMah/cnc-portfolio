@@ -44,23 +44,22 @@ type FilterSortProps = {
   onChange: (filters: string[], sort: string) => void;
 };
 
-function FilterDropdown({
-  dropdownTitle,
+function FilterDropdownWrapper({
+  children,
   selectedTags,
   tagOptions,
   toggleTag,
 }: {
-  dropdownTitle: string;
   selectedTags: string[];
   tagOptions: string[];
   toggleTag: (tag: string) => void;
+  children: React.ReactNode;
 }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
         <Button className="flex items-center gap-2">
-          <Filter className="w-4 h-4" />
-          {dropdownTitle}
+          {children}
           <ChevronDown className="w-4 h-4" />
         </Button>
       </PopoverTrigger>
@@ -119,51 +118,40 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
   return (
     <div className="flex flex-wrap items-center gap-4 mb-6">
       {/* Filter (multi-select tags) */}
-
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button className="flex items-center gap-2">
-            <Filter className="w-4 h-4" />
-            Filter Tags
-            <ChevronDown className="w-4 h-4" />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent className="w-64 p-2">
-          <Command>
-            <CommandInput placeholder="Search tags..." />
-            <MyScrollableDiv className="max-h-60 overflow-y-auto ">
-              {otherTags.map((tag) => (
-                <CommandItem
-                  key={tag}
-                  onSelect={() => toggleTag(tag)}
-                  className="flex items-center gap-2"
-                >
-                  <div className="shrink-0">
-                    <Checkbox
-                      checked={selectedTags.includes(tag)}
-                      onCheckedChange={() => toggleTag(tag)}
-                      className="mr-2 shadow-sm"
-                      style={{
-                        backgroundColor: "white",
-                        borderColor: "#e5e5e5",
-                        padding: "0",
-                        borderRadius: "4px",
-                      }}
-                    />
-                  </div>
-                  {tag}
-                </CommandItem>
-              ))}
-            </MyScrollableDiv>
-          </Command>
-        </PopoverContent>
-      </Popover>
-      <FilterDropdown
-        dropdownTitle="Filter Tools"
+      <FilterDropdownWrapper
+        selectedTags={selectedTags}
+        tagOptions={otherTags}
+        toggleTag={toggleTag}
+      >
+        <i className="fa-solid fa-filter w-4 h-4" />
+        {"Filter Tags"}
+      </FilterDropdownWrapper>
+      <FilterDropdownWrapper
         selectedTags={selectedTags}
         tagOptions={TOOL_TAGS}
         toggleTag={toggleTag}
-      />
+      >
+        <div
+          style={{
+            position: "relative",
+            display: "inline-block",
+          }}
+        >
+          {/* <Filter className="w-4 h-4" /> */}
+          <i className="fa-solid fa-filter w-4 h-4" />
+          <i
+            className="fa-solid fa-hammer"
+            style={{
+              position: "absolute",
+              top: ".36rem",
+              right: ".25rem",
+              fontSize: "0.35rem",
+              color: "#1a1a1a", // gray-600
+            }}
+          />
+        </div>
+        {"Filter Tools"}
+      </FilterDropdownWrapper>
       {/* Sort dropdown */}
       <Select value={sort} onValueChange={handleSortChange}>
         <SelectTrigger className="w-[200px]">

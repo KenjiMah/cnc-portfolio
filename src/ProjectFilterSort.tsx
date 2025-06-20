@@ -31,6 +31,10 @@ const MyScrollableDiv = styled(CommandGroup)`
   /* Other styled-components styles */
 `;
 
+const ClearButton = styled(Button)`
+  background-color: #1a1a1a24 !important;
+`;
+
 const allTags = getAllUniqueTags(projects);
 const otherTags = allTags.filter((item) => !TOOL_TAGS.includes(item));
 const sortOptions = [
@@ -50,12 +54,15 @@ function FilterDropdownWrapper({
   selectedTags,
   tagOptions,
   toggleTag,
+  clearTags,
 }: {
   selectedTags: string[];
   tagOptions: string[];
   toggleTag: (tag: string) => void;
+  clearTags: (tagsToClear: string[]) => void;
   children: React.ReactNode;
 }) {
+  const activeTags = tagOptions.filter((tag) => selectedTags.includes(tag));
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -91,6 +98,18 @@ function FilterDropdownWrapper({
               </CommandItem>
             ))}
           </MyScrollableDiv>
+          {/* Clear all section */}
+          {activeTags.length > 0 && (
+            <div className="flex justify-end mt-2 px-2">
+              <ClearButton
+                variant="ghost"
+                size="sm"
+                onClick={() => clearTags(tagOptions)}
+              >
+                Clear All
+              </ClearButton>
+            </div>
+          )}
         </Command>
       </PopoverContent>
     </Popover>
@@ -111,6 +130,14 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
     onChange(newTags, sort);
   }
 
+  function clearTags(tagsToClear: string[]) {
+    const updatedTags = selectedTags.filter(
+      (tag) => !tagsToClear.includes(tag)
+    );
+    setSelectedTags(updatedTags);
+    onChange(updatedTags, sort);
+  }
+
   function handleSortChange(value: string) {
     setSort(value);
     onChange(selectedTags, value);
@@ -123,6 +150,7 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
         selectedTags={selectedTags}
         tagOptions={otherTags}
         toggleTag={toggleTag}
+        clearTags={clearTags}
       >
         <i className="fa-solid fa-filter w-4 h-4" />
         {"Filter Tags"}
@@ -131,6 +159,7 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
         selectedTags={selectedTags}
         tagOptions={TOOL_TAGS}
         toggleTag={toggleTag}
+        clearTags={clearTags}
       >
         <div
           style={{
@@ -138,7 +167,6 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
             display: "inline-block",
           }}
         >
-          {/* <Filter className="w-4 h-4" /> */}
           <i className="fa-solid fa-filter w-4 h-4" />
           <i
             className="fa-solid fa-hammer"

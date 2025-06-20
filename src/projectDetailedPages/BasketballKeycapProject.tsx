@@ -62,7 +62,24 @@ export function BasketballKeycapProject({ lastUpdatedUnix }: ProjectEntry) {
         />
       </div>
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 2: Fixing Rigidity Issues & Transition to Aluminum
+        Step 2: Precision Stock Measurements
+      </h2>
+      <p className="mb-6 text-base leading-relaxed">
+        Before milling, I measured the aluminum stock with a{" "}
+        <strong>micrometer</strong>, recording dimensions to the nearest{" "}
+        <strong>0.0001"</strong>. This step was crucial because any slight
+        discrepancy in stock size would affect the accuracy of rotations and
+        finishing passes when using a vise stop. By ensuring I knew the exact
+        thickness and width, I could set CAM toolpaths that aligned perfectly
+        with the real material.
+      </p>
+      <ExpandableImage
+        src={imageMap["../assets/images/basketballKeycap/micrometer.jpeg"]}
+        alt="Micrometer Measurements"
+        className="place-self-center md:ml-6 mb-4 w-full sm:w-[200px] md:w-[250px] rounded shadow-sm"
+      />
+      <h2 className="text-2xl font-semibold mt-10 mb-4">
+        Step 3: Fixing Rigidity Issues & Transition to Aluminum
       </h2>
       <p className="mb-6 text-base leading-relaxed">
         Based on the foam test, I made several CAM adjustments. Most notably, I
@@ -94,7 +111,7 @@ export function BasketballKeycapProject({ lastUpdatedUnix }: ProjectEntry) {
       </p>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4">
-        Step 3: Finer Detail Passes
+        Step 4: Finer Detail Passes
       </h2>
       <p className="mb-6 text-base leading-relaxed">
         To bring out more detail, especially in the grooves of the basketball

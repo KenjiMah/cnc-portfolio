@@ -39,6 +39,7 @@ export const projects: ProjectEntry[] = [
       "CAM",
       "Aluminum",
       "Prototyping",
+      "Micrometer",
       "Foam Machining",
       "Fusion 360",
       "Tool Deflection",
@@ -49,7 +50,7 @@ export const projects: ProjectEntry[] = [
       "Surface Finish",
       "Tapered End Mill",
     ],
-    lastUpdatedUnix: 1750275382,
+    lastUpdatedUnix: 1750399542,
   },
   {
     id: "CNCLetter",

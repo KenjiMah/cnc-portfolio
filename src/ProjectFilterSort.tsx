@@ -19,7 +19,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { ChevronDown, Filter, SortAsc } from "lucide-react";
+import { ChevronDown, SortAsc } from "lucide-react";
 import { projects } from "./utils/projectData";
 import styled from "styled-components";
 import { getAllUniqueTags } from "./utils/utilFns";

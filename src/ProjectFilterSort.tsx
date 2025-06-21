@@ -19,7 +19,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { ChevronDown, SortAsc } from "lucide-react";
+import { ChevronDown, SortAsc, SortDesc } from "lucide-react";
 import { projects } from "./utils/projectData";
 import styled from "styled-components";
 import { getAllUniqueTags } from "./utils/utilFns";
@@ -184,7 +184,12 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
       {/* Sort dropdown */}
       <Select value={sort} onValueChange={handleSortChange}>
         <SelectTrigger className="w-[200px]">
-          <SortAsc className="mr-2 h-4 w-4" />
+          {sort === "date-asc" || sort === "title-desc" ? (
+            <SortDesc className="mr-2 h-4 w-4" />
+          ) : (
+            <SortAsc className="mr-2 h-4 w-4" />
+          )}
+
           <SelectValue placeholder="Sort by" />
         </SelectTrigger>
         <SelectContent>

@@ -7,11 +7,12 @@ import { IconLinks } from "./customComponents/IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
 import { ROUTES } from "./utils/constants";
 import { Store } from "./pages/Store";
+import { CartProvider } from "./context/cart-provider";
+import { Toaster } from "sonner";
 
 function App() {
-  console.log("App component rendered", window.location.hostname);
   return (
-    <>
+    <CartProvider>
       <div className="relative h-80">
         {/* Background that fades on scroll */}
         <div
@@ -54,7 +55,8 @@ function App() {
         </section>
       </section>
       <PopoverMenubar />
-    </>
+      <Toaster />
+    </CartProvider>
   );
 }
 

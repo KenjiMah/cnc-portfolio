@@ -6,8 +6,10 @@ import { Routes, Route } from "react-router-dom";
 import { IconLinks } from "./customComponents/IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
 import { ROUTES } from "./utils/constants";
+import { Store } from "./pages/Store";
 
 function App() {
+  console.log("App component rendered", window.location.hostname);
   return (
     <>
       <div className="relative h-80">
@@ -43,6 +45,7 @@ function App() {
             <Route index element={<Projects />} />
             <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
             <Route path={ROUTES.PROJECTPAGE} element={<Projects />} />
+            <Route path={ROUTES.STORE} element={<Store />} />
             <Route
               path={`${ROUTES.PROJECTPAGE}/:projectId`}
               element={<DetailedProject />}

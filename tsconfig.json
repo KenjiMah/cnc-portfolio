@@ -9,7 +9,8 @@
     "paths": {
       "@/*": ["*"],
       "@customComponents/*": ["customComponents/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@css/*": ["css/*"]
       // "@shadcn/*": ["components/*"]
     }
   }

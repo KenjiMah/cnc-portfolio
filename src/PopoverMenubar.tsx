@@ -43,6 +43,12 @@ export function PopoverMenubar() {
         >
           About
         </IconWrapper>
+        <IconWrapper
+          pathTo={`/${ROUTES.STORE}`}
+          iconClassName={`fa-solid fa-shopping-cart pt-1`}
+        >
+          Store
+        </IconWrapper>
       </div>
     </Card>
   );

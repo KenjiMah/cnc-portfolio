@@ -1,6 +1,7 @@
 export const ROUTES = {
   PROJECTPAGE: "projects",
   ABOUTMEPAGE: "about",
+  STORE: "store",
 };
 
 export const TOOL_TAGS = [

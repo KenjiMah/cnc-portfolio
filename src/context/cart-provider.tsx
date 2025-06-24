@@ -8,7 +8,6 @@ import {
 } from "react";
 import { toast } from "sonner";
 
-// --- THE FIX IS HERE ---
 // This function runs once to get the initial state.
 const getInitialCart = (): CartItem[] => {
   if (typeof window === "undefined") {
@@ -24,7 +23,6 @@ const getInitialCart = (): CartItem[] => {
 };
 
 interface CartContextType {
-  // ... (interface is the same)
   cartItems: CartItem[];
   addToCart: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
   removeFromCart: (id: string) => void;
@@ -40,12 +38,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   // Initialize state directly from our function instead of an empty array.
   const [cartItems, setCartItems] = useState<CartItem[]>(getInitialCart);
 
-  // We no longer need the useEffect to load the cart, only to save it.
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  // ... All other functions (addToCart, removeFromCart, etc.) remain exactly the same
   const addToCart = (item: Omit<CartItem, "quantity">, quantity = 1) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
@@ -72,11 +68,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const updateQuantity = (id: string, quantity: number) => {
     if (quantity <= 0) {
-      removeFromCart(id);
+      removeFromCart(id); // This already has a toast
     } else {
+      // Find the item to get its name for the toast message
+      const itemName = cartItems.find((item) => item.id === id)?.name || "Item";
       setCartItems((prevItems) =>
         prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
       );
+
+      toast.info("Quantity Updated", {
+        description: `Set ${itemName} to ${quantity}.`,
+      });
     }
   };
 

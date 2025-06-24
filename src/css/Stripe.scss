@@ -1,13 +1,4 @@
-/* .App {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-} */
+$stripe-button-color: #007bff;
 .stripe {
   form {
     width: 30vw;
@@ -36,7 +27,7 @@
 
   /* Buttons and links */
   button {
-    background: #0055de;
+    background: $stripe-button-color;
     font-family: Arial, sans-serif;
     color: #ffffff;
     border-radius: 4px;
@@ -47,7 +38,7 @@
     cursor: pointer;
     display: block;
     transition: all 0.2s ease;
-    box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 4px 5.5px 0px rgba(181, 75, 75, 0.07);
     width: 100%;
   }
 

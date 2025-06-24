@@ -45,32 +45,6 @@ export function Store() {
     handleClick();
   };
 
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    // prevent strict mode from double-fetching
-    if (fetchedRef.current) return;
-    fetchedRef.current = true;
-    fetch(
-      "https://93xotz88ia.execute-api.us-west-1.amazonaws.com/prod/create-payment-intent?",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: [{ id: "cad-keycap-metal", amount: 200 }],
-          receiptEmail: "gobef12449@iridales.com",
-        }),
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
-
-  const appearance = {
-    theme: "stripe",
-  } as Appearance;
-  // Enable the skeleton loader UI for optimal loading.
-  const loader = "auto";
-
   return (
     <div className="flex flex-col items-center justify-center h-full">
       <Header />
@@ -79,7 +53,7 @@ export function Store() {
         {isLoading ? (
           <p className="text-center">Loading products...</p>
         ) : products.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

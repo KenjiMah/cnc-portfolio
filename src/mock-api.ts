@@ -1,40 +1,36 @@
 // Create some fake product data. In a real app, this comes from Stripe.
-
+// TODO: maybe convert to an endpoint?
 import type { StripeProduct } from "./storeComponents/types";
+import { ALL_IMAGES_MAP } from "./utils/projectData";
+
+const isDev = process.env.NODE_ENV === "development";
 
 // Use real image URLs or local placeholders.
 const MOCK_PRODUCTS: StripeProduct[] = [
   {
-    id: "prod_1",
-    name: "Quantum Keyboard",
-    description: "A mechanical keyboard that feels like typing on clouds.",
-    image: "https://images.unsplash.com/photo-1618384887924-2c8427160226?q=80&w=870",
-    price: 12999, // in cents ($129.99)
+    id: isDev
+      ? "price_1RdamdG4tz9qB6w3L2yV3SQe"
+      : "price_1RdfhCG4tz9qB6w3xcF2tRWh,prod_SYnHhIwxDeAqsT",
+    name: "Basketball Keycap CAD Files",
+    description: "STL's, fusion360, and Step files",
+    image:
+      ALL_IMAGES_MAP[
+        "../assets/images/basketballKeycap/BasketballKeycapModel.png"
+      ],
+    price: 200, // in cents
     currency: "usd",
+    productType: "e-file",
   },
   {
-    id: "prod_2",
-    name: "Aero Mouse",
-    description: "Lightweight gaming mouse for ultimate precision.",
-    image: "https://images.unsplash.com/photo-1615663249852-321172a83214?q=80&w=870",
-    price: 7900, // in cents ($79.00)
+    id: isDev
+      ? "price_1RdgLlG4tz9qB6w3B8FhimXs"
+      : "price_1RdgLrG4tz9qB6w3q4pqMtmQ",
+    name: "Poro Keycap",
+    description: "Cute Poro Keycap.",
+    image: ALL_IMAGES_MAP["../assets/images/poroKeycaps/singlePoro.jpeg"],
+    price: 2000, // in cents ($79.00)
     currency: "usd",
-  },
-  {
-    id: "prod_3",
-    name: "Crystal-Clear Monitor",
-    description: "A 27-inch 4K monitor with stunning color accuracy.",
-    image: "https://images.unsplash.com/photo-1593344484962-796b16d8a976?q=80&w=774",
-    price: 49950, // in cents ($499.50)
-    currency: "usd",
-  },
-    {
-    id: "prod_4",
-    name: "Noise-Cancelling Headphones",
-    description: "Immerse yourself in sound, and nothing else.",
-    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=870",
-    price: 34900, // in cents ($349.00)
-    currency: "usd",
+    productType: "physical",
   },
 ];
 
@@ -43,6 +39,6 @@ export const getMockProducts = (): Promise<StripeProduct[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(MOCK_PRODUCTS);
-    }, 1000); // Simulate 1 second of network delay
+    }, 0); // Simulate 0 seconds of network delay
   });
 };

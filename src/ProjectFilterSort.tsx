@@ -43,8 +43,8 @@ const sortOptions = [
   { value: "title-asc", label: "Title A–Z" },
   { value: "title-desc", label: "Title Z–A" },
 ];
-//@TODO: change the select to be a multiselect?
-// test autodeploy
+// TODO: change the select to be a multiselect?
+
 type FilterSortProps = {
   onChange: (filters: string[], sort: string) => void;
 };

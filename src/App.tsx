@@ -13,6 +13,7 @@ import { Toaster } from "sonner";
 function App() {
   return (
     <CartProvider>
+      <Toaster position="top-center" />
       <div className="relative h-80">
         {/* Background that fades on scroll */}
         <div
@@ -40,8 +41,8 @@ function App() {
 
       {/* OVERLAPPING CONTENT */}
 
-      <section className="-mt-20 relative z-20 bg-black text-zinc-100 px-6 py-12">
-        <section className="max-w-5lg mx-auto text-zinc-100">
+      <section className="-mt-20 relative z-20 bg-black text-zinc-100 px-6 ">
+        <section className="max-w-5lg mx-auto text-zinc-100 ">
           <Routes>
             <Route index element={<Projects />} />
             <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
@@ -55,7 +56,6 @@ function App() {
         </section>
       </section>
       <PopoverMenubar />
-      <Toaster />
     </CartProvider>
   );
 }

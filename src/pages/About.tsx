@@ -118,7 +118,7 @@ function RightCol() {
 
 export function About() {
   return (
-    <>
+    <div className="my-12">
       <h2 className="text-3xl font-bold mb-8">🛠️ About Me</h2>
       <div className="grid md:grid-cols-6 md:gap-8 justify-center grid-cols-1">
         {/* LEFT COLUMN */}
@@ -126,6 +126,6 @@ export function About() {
         {/* RIGHT COLUMN – About Paragraph */}
         <RightCol />
       </div>
-    </>
+    </div>
   );
 }

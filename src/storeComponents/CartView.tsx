@@ -1,22 +1,51 @@
-// Create this in a new file, e.g., src/components/CartView.jsx
 import { Button } from "@/components/ui/button";
 import { SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { formatCurrency } from "@/utils/utilFns";
 import { CartItem } from "./CartItem";
+import { useCart } from "@/context/cart-provider";
+import { useState } from "react";
 
 export function CartView({
-  cartItems,
-  getCartTotal,
   updateQuantity,
   removeFromCart,
   onProceed,
 }: {
-  cartItems: any[];
-  getCartTotal: () => number;
   updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
-  onProceed: () => void;
+  onProceed: (clientSecret: string) => void;
 }) {
+  const { cartItems, getCartTotal } = useCart();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    fetch(
+      "https://93xotz88ia.execute-api.us-west-1.amazonaws.com/prod/create-checkout-session",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: cartItems.map((item) => ({
+            id: item.id,
+            quantity: item.quantity,
+            productType: item.productType,
+          })),
+        }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const { error } = data;
+        if (error) {
+          setError(error);
+        } else {
+          // TODO change this so that it clears the cart on success
+          onProceed(data.clientSecret);
+        }
+      });
+  };
+
   return (
     <>
       <SheetHeader>
@@ -40,9 +69,17 @@ export function CartView({
             <span>Total</span>
             <span>{formatCurrency(getCartTotal())}</span>
           </div>
-          <Button className="w-full !bg-[#007bff]" onClick={onProceed}>
+          {/* The Checkout Button */}
+          <Button
+            disabled={isLoading}
+            onClick={handleCheckout}
+            className="w-full mt-4"
+          >
             Proceed to Checkout
           </Button>
+          {error && (
+            <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
+          )}
         </div>
       </SheetFooter>
     </>

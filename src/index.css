@@ -73,6 +73,27 @@ h1 {
   line-height: 1.1;
 }
 
+@layer base {
+  /* 
+    Apply cursor: pointer to all buttons, and <a> tags with a role of "button".
+    This makes any element that is semantically a button behave like one.
+  */
+  button,
+  [role="button"] {
+    @apply cursor-pointer;
+  }
+
+  /* 
+    This is the CRITICAL part. 
+    Ensure that disabled buttons correctly show the "not-allowed" cursor.
+    This rule will correctly override the one above for disabled elements.
+  */
+  button:disabled,
+  [role="button"][aria-disabled="true"] {
+    @apply cursor-not-allowed;
+  }
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

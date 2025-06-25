@@ -5,6 +5,7 @@ export interface CartItem {
   price: number;
   currency: string;
   quantity: number;
+  productType: "e-file" | "physical";
 }
 
 export interface StripeProduct {
@@ -14,4 +15,5 @@ export interface StripeProduct {
   image: string | null;
   price: number;
   currency: string;
+  productType: "e-file" | "physical";
 }

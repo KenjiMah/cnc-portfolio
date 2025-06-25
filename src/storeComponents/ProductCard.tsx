@@ -21,7 +21,7 @@ import { LightModeBoundary } from "@/components/ui/theme-boundary";
 import { ImagePlaceholder } from "@/customComponents/ImagePlaceholder";
 
 const formSchema = z.object({
-  quantity: z.coerce.number().min(1, { message: "Must be at least 1" }),
+  quantity: z.coerce.number().min(0, { message: "Must be at least 0" }),
 });
 
 interface ProductCardProps {
@@ -61,8 +61,9 @@ export function ProductCard({ product }: ProductCardProps) {
           price: product.price,
           currency: product.currency,
           image: product.image,
+          productType: product.productType,
         },
-        data.quantity
+        data?.quantity || 1
       );
     }
   };
@@ -107,7 +108,7 @@ export function ProductCard({ product }: ProductCardProps) {
             <LightModeBoundary>
               <Input
                 type="number"
-                min="1"
+                min={existingCartItem ? 0 : 1}
                 className="w-20 text-center"
                 {...register("quantity")}
               />

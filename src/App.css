@@ -40,5 +40,6 @@
 .read-the-docs {
   color: #888;
 }
-
-
+[data-radix-toast] {
+  z-index: 99 !important;
+}

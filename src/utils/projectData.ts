@@ -7,10 +7,13 @@ import { MetalLetterProject } from "../projectDetailedPages/MetalLetterProject";
 import { ParkletProject } from "../projectDetailedPages/ParkletProject";
 import { ThreeDKeycapsProject } from "../projectDetailedPages/ThreeDKeycapsProject";
 
-const imageMap = import.meta.glob("../assets/images/**/*.{png,jpeg,jpg,svg}", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
+export const ALL_IMAGES_MAP = import.meta.glob(
+  "../assets/images/**/*.{png,jpeg,jpg,svg}",
+  {
+    eager: true,
+    import: "default",
+  }
+) as Record<string, string>;
 
 export interface ProjectEntry {
   id: string;
@@ -57,7 +60,9 @@ export const projects: ProjectEntry[] = [
       "Designed and milled a basketball keycap for a custom keyboard, with a focus on precision and aesthetics.",
     // Placeholder image, replace with actual image path
     image:
-      imageMap["../assets/images/basketballKeycap/BasketballKeycapModel.png"],
+      ALL_IMAGES_MAP[
+        "../assets/images/basketballKeycap/BasketballKeycapModel.png"
+      ],
     tags: [
       "CNC Machining",
       "Keycap Design",
@@ -83,7 +88,7 @@ export const projects: ProjectEntry[] = [
     title: "CNC Letter",
     projectType: "Case Study",
     description: "Milled a custom letter focusing on the CNC process.",
-    image: imageMap["../assets/images/cncLetter/finished.jpeg"],
+    image: ALL_IMAGES_MAP["../assets/images/cncLetter/finished.jpeg"],
     tags: [
       "CNC Machining",
       "Tormach PCNC 1100",
@@ -109,7 +114,7 @@ export const projects: ProjectEntry[] = [
     projectType: "Case Study",
     description:
       'Precision practice for facing a perfect cube with -0.0003" tolerance',
-    image: imageMap["../assets/images/dice/Finished.jpeg"],
+    image: ALL_IMAGES_MAP["../assets/images/dice/Finished.jpeg"],
     tags: [
       "Manual Milling",
       "Aluminum",
@@ -134,7 +139,7 @@ export const projects: ProjectEntry[] = [
     title: "Metal Letter",
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
-    image: imageMap["../assets/images/metalLetter/Letter.jpeg"],
+    image: ALL_IMAGES_MAP["../assets/images/metalLetter/Letter.jpeg"],
     tags: [
       "Aluminum",
       "Hand Tools",
@@ -156,7 +161,7 @@ export const projects: ProjectEntry[] = [
     title: "Maeda Crest",
     projectType: "Case Study",
     description: "Beginner metal working project for learning metalshop tools.",
-    image: imageMap["../assets/images/maedaCrest/Crest.jpeg"],
+    image: ALL_IMAGES_MAP["../assets/images/maedaCrest/Crest.jpeg"],
     tags: [
       "Aluminum",
       "Hand Tools",
@@ -179,7 +184,7 @@ export const projects: ProjectEntry[] = [
     projectType: "SLA 3D Printing",
     description:
       "Printed some cute looking keycaps using the ELEGOO Saturn 2 MSLA 3D Printer.",
-    image: imageMap["../assets/images/poroKeycaps/poroKeycaps.jpeg"],
+    image: ALL_IMAGES_MAP["../assets/images/poroKeycaps/poroKeycaps.jpeg"],
     tags: [
       "3D Printing",
       "Resin Printing",

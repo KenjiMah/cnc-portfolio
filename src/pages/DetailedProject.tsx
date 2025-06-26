@@ -16,7 +16,7 @@ function EmptyPage() {
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
-    <div className="text-left grid col-6 max-w-6xl mx-auto min-w-0">
+    <div className="text-left grid col-6 max-w-6xl mx-auto min-w-0 pt-4">
       <div className="col-start-2 col-span-4 bg-black min-w-0">
         <Link to={`/${ROUTES.PROJECTPAGE}`}>
           <Button>Back to projects</Button>

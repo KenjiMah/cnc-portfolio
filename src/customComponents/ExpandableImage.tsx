@@ -47,7 +47,7 @@ export default function ExpandableImage({
         alt={alt}
         loading="lazy"
         onClick={() => setExpanded(true)}
-        className={`h-fit cursor-zoom-in transition duration-300 group-hover:brightness-90 object-contain ${className}`}
+        className={`h-fit h-auto cursor-zoom-in transition duration-300 group-hover:brightness-90 object-contain ${className}`}
       />
 
       {description && (

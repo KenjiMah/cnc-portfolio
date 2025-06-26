@@ -41,7 +41,7 @@ function App() {
 
       {/* OVERLAPPING CONTENT */}
 
-      <section className="-mt-20 relative z-20 bg-black text-zinc-100 px-6 ">
+      <section className="-mt-20 relative z-20 bg-black text-zinc-100 px-6">
         <section className="max-w-5lg mx-auto text-zinc-100 ">
           <Routes>
             <Route index element={<Projects />} />

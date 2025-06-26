@@ -4,6 +4,7 @@ import { formatCurrency } from "@/utils/utilFns";
 import { CartItem } from "./CartItem";
 import { useCart } from "@/context/cart-provider";
 import { useState } from "react";
+import { Loader2Icon } from "lucide-react";
 
 export function CartView({
   updateQuantity,
@@ -40,7 +41,6 @@ export function CartView({
         if (error) {
           setError(error);
         } else {
-          // TODO change this so that it clears the cart on success
           onProceed(data.clientSecret);
         }
       });
@@ -70,13 +70,20 @@ export function CartView({
             <span>{formatCurrency(getCartTotal())}</span>
           </div>
           {/* The Checkout Button */}
-          <Button
-            disabled={isLoading}
-            onClick={handleCheckout}
-            className="w-full mt-4"
-          >
-            Proceed to Checkout
-          </Button>
+          {isLoading ? (
+            <Button className="w-full mt-4" disabled>
+              <Loader2Icon className="animate-spin" />
+              Please wait
+            </Button>
+          ) : (
+            <Button
+              disabled={isLoading}
+              onClick={handleCheckout}
+              className="w-full mt-4"
+            >
+              Proceed to Checkout
+            </Button>
+          )}
           {error && (
             <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
           )}

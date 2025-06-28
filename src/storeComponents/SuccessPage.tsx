@@ -15,7 +15,7 @@ export function SuccessPage() {
     if (sessionId) {
       console.log("Payment successful for session:", sessionId);
       // Clear the cart now that the payment is complete.
-      clearCart();
+      clearCart(sessionId);
     }
   }, [clearCart, searchParams]);
 
@@ -28,7 +28,7 @@ export function SuccessPage() {
       </p>
       <Button asChild>
         {/* Update the link to point to your store page */}
-        <Link to={ROUTES.STORE}>Continue Shopping</Link>
+        <Link to={`/${ROUTES.STORE}`}>Continue Shopping</Link>
       </Button>
     </div>
   );

@@ -5,6 +5,7 @@ import {
   useState,
   useEffect,
   type ReactNode,
+  useCallback,
 } from "react";
 import { toast } from "sonner";
 
@@ -27,7 +28,7 @@ interface CartContextType {
   addToCart: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
   removeFromCart: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
-  clearCart: () => void;
+  clearCart: (sessionId?: string) => void;
   getCartTotal: () => number;
   getCartItemCount: () => number;
 }
@@ -37,6 +38,10 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   // Initialize state directly from our function instead of an empty array.
   const [cartItems, setCartItems] = useState<CartItem[]>(getInitialCart);
+  // Keep track of the last session ID that cleared the cart
+  const [lastClearedSession, setLastClearedSession] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -82,13 +87,26 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const clearCart = () => {
-    setCartItems([]);
-    toast.info("Cart Cleared", {
-      description: "All items have been removed from your cart.",
-    });
-  };
-
+  const clearCart = useCallback(
+    (sessionId?: string) => {
+      // Only clear the cart if the session ID is new
+      if (sessionId && sessionId !== lastClearedSession) {
+        setCartItems([]);
+        localStorage.removeItem("cart");
+        setLastClearedSession(sessionId); // Remember this session ID
+        console.log(`Cart cleared for session ${sessionId}`);
+      } else if (!sessionId) {
+        setCartItems([]);
+        localStorage.removeItem("cart");
+        console.log(`Cart cleared for session ${sessionId}`);
+        // Your toast logic would go here, now it's guaranteed to run once
+        toast.success("Empty Cart", {
+          description: "Your cart has been cleared.",
+        });
+      }
+    },
+    [lastClearedSession]
+  ); // Dependency on the last cleared session
   const getCartTotal = () => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity,

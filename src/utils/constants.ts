@@ -2,6 +2,7 @@ export const ROUTES = {
   PROJECTPAGE: "projects",
   ABOUTMEPAGE: "about",
   STORE: "store",
+  SUCCESSFUL_PAYMENT: "success",
 };
 
 export const TOOL_TAGS = [

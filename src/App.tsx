@@ -9,6 +9,7 @@ import { ROUTES } from "./utils/constants";
 import { Store } from "./pages/Store";
 import { CartProvider } from "./context/cart-provider";
 import { Toaster } from "sonner";
+import { SuccessPage } from "./storeComponents/SuccessPage";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route index element={<Projects />} />
             <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
             <Route path={ROUTES.PROJECTPAGE} element={<Projects />} />
+            <Route path={ROUTES.SUCCESSFUL_PAYMENT} element={<SuccessPage />} />
             <Route path={ROUTES.STORE} element={<Store />} />
             <Route
               path={`${ROUTES.PROJECTPAGE}/:projectId`}

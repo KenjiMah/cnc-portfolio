@@ -5,6 +5,7 @@ import { CartItem } from "./CartItem";
 import { useCart } from "@/context/cart-provider";
 import { useState } from "react";
 import { Loader2Icon } from "lucide-react";
+import { ROUTES } from "@/utils/constants";
 
 export function CartView({
   updateQuantity,
@@ -15,14 +16,18 @@ export function CartView({
   removeFromCart: (id: string) => void;
   onProceed: (clientSecret: string) => void;
 }) {
-  const { cartItems, getCartTotal } = useCart();
+  const { cartItems, getCartTotal, clearCart } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleCheckout = async () => {
     // Dynamically construct the success URL based on the current window location.
     // This works for both http://localhost:5173 and https://kenjimah.github.io
-    const returnUrl = `${window.location.origin}${window.location.pathname}#/success`;
+
+    const successPathWithHash = `#/${ROUTES.SUCCESSFUL_PAYMENT}`;
+    const returnUrlWithTemplate = `${window.location.origin}${window.location.pathname}${successPathWithHash}?session_id={CHECKOUT_SESSION_ID}`;
+
+    // const returnUrl = `${window.location.origin}${window.location.pathname}#/success`;
     setIsLoading(true);
     fetch(
       "https://93xotz88ia.execute-api.us-west-1.amazonaws.com/prod/create-checkout-session",
@@ -35,7 +40,7 @@ export function CartView({
             quantity: item.quantity,
             productType: item.productType,
           })),
-          returnUrl: returnUrl,
+          returnUrl: returnUrlWithTemplate,
         }),
       }
     )

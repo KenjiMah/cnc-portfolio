@@ -90,6 +90,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const clearCart = useCallback(
     (sessionId?: string) => {
       // Only clear the cart if the session ID is new
+      // This session ID is provided when a customer completes a purchase and
+      // stripe redirects them to the success page
       if (sessionId && sessionId !== lastClearedSession) {
         setCartItems([]);
         localStorage.removeItem("cart");

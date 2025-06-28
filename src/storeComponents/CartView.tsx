@@ -20,6 +20,9 @@ export function CartView({
   const [error, setError] = useState(null);
 
   const handleCheckout = async () => {
+    // Dynamically construct the success URL based on the current window location.
+    // This works for both http://localhost:5173 and https://kenjimah.github.io
+    const returnUrl = `${window.location.origin}${window.location.pathname}#/success`;
     setIsLoading(true);
     fetch(
       "https://93xotz88ia.execute-api.us-west-1.amazonaws.com/prod/create-checkout-session",
@@ -32,6 +35,7 @@ export function CartView({
             quantity: item.quantity,
             productType: item.productType,
           })),
+          returnUrl: returnUrl,
         }),
       }
     )

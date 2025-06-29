@@ -22,6 +22,15 @@ const MOCK_PRODUCTS: StripeProduct[] = [
     productType: "e-file",
   },
   {
+    id: isDev ? "price_1RfSgtG4tz9qB6w37TCJVVN1" : "prodPriceID",
+    name: "Minion Plaque CAD Files",
+    description: "STL's, fusion360, and Step files",
+    image: ALL_IMAGES_MAP["../assets/images/minionPlaque/MinionModel.png"],
+    price: 200, // in cents
+    currency: "usd",
+    productType: "e-file",
+  },
+  {
     id: isDev
       ? "price_1RdgLlG4tz9qB6w3B8FhimXs"
       : "price_1RdgLrG4tz9qB6w3q4pqMtmQ",

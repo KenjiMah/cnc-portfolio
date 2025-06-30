@@ -55,22 +55,8 @@ jobs:
       - name: Install dependencies
         run: npm ci # 'ci' is generally preferred for CI environments
 
-      - name: Determine Base URL for Vite
-        id: base_url
-        run: |
-          if [[ "${{ github.repository }}" == "${{ github.repository_owner }}/${{ github.repository_owner }}.github.io" ]]; then
-            echo "VITE_BASE_URL=/" >> $GITHUB_ENV
-            echo "Calculated VITE_BASE_URL: /"
-          else
-            echo "VITE_BASE_URL=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
-            echo "Calculated VITE_BASE_URL: /${{ github.event.repository.name }}/"
-          fi
-      - name: Build Vite project
-        run: |
-          echo "Using VITE_BASE_URL=${{ env.VITE_BASE_URL }}"
-          npm run build -- --base=${{ env.VITE_BASE_URL }}
-        env:
-          NODE_ENV: production # Ensures Vite builds in production mode
+      - name: Build project
+        run: npm run build
 
       - name: Create .nojekyll file
         run: touch ./dist/.nojekyll

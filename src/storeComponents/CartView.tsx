@@ -16,7 +16,7 @@ export function CartView({
   removeFromCart: (id: string) => void;
   onProceed: (clientSecret: string) => void;
 }) {
-  const { cartItems, getCartTotal, clearCart } = useCart();
+  const { cartItems, getCartTotal } = useCart();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 

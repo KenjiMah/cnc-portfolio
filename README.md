@@ -1,6 +1,6 @@
 # Hey there, I'm Kenji 👋
 
-I'm a software engineer passionate about building web apps and exploring 3D graphics. Visit my website: https://kenjimah.github.io/cnc-portfolio/
+I'm a software engineer passionate about building web apps and exploring 3D graphics. Visit my website: https://www.kenji-tech-builds.com/#/projects
 
 ### Currently
 

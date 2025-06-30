@@ -95,12 +95,12 @@ export function ProductCard({ product }: ProductCardProps) {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="flex-grow flex flex-col justify-between">
+      <CardContent className="flex-grow flex flex-col justify-between object-fit">
         {image && !imageError ? (
           <img
             src={image}
             alt={name}
-            className="rounded-md object-cover aspect-[4/3] w-full"
+            className="rounded-md object-contain aspect-[4/3] w-full"
             onError={() => setImageError(true)}
           />
         ) : (

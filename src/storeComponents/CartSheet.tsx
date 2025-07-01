@@ -13,6 +13,7 @@ export function CartSheet() {
   // STEP 1: Add state to manage the wizard step
   const [step, setStep] = useState(1); // 1 = Cart, 2 = Payment
   const [clientSecret, setClientSecret] = useState("");
+  const hasFiles = cartItems.some((item) => item.productType === "e-files");
 
   const handleSheetOpenChange = (isOpen: any) => {
     // Reset to the first step whenever the sheet is closed
@@ -54,6 +55,7 @@ export function CartSheet() {
               <PaymentView
                 onBack={() => setStep(1)} // This function goes back
                 clientSecret={clientSecret}
+                hasFiles={hasFiles}
               />
             )}
           </>

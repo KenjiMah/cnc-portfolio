@@ -38,7 +38,7 @@ function App() {
       {/* OVERLAPPING CONTENT */}
 
       <section className="-mt-20 relative z-20 bg-black text-zinc-100 px-6 py-12">
-        <section className="max-w-5lg mx-auto text-zinc-100">
+        <section className="max-w-5lg text-zinc-100">
           <Routes>
             <Route index element={<Projects />} />
             <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />

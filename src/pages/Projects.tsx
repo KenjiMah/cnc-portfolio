@@ -38,7 +38,7 @@ export function Projects() {
   }, [selectedTags, sortOption]);
 
   return (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl">
       {/* Filter + Sort Controls */}
       <ProjectFilterSort
         onChange={(
@@ -51,7 +51,7 @@ export function Projects() {
       />
 
       {/* Project Grid */}
-      <div className="grid md:grid-cols-3 gap-6 mt-4">
+      <div className="grid md:grid-cols-3 gap-6 mt-4 items-center ">
         {filteredProjects.map((project, idx) => (
           <CNCProjectCard
             key={project.id}

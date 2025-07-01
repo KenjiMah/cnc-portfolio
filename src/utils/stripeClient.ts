@@ -4,7 +4,7 @@ const isLocalhost =
   typeof window !== "undefined" && window.location.hostname === "localhost";
 
 const PUBLIC_TEST_KEY =
-  "pk_test_51RcUNbG4tz9qB6w3UoOoTJi0Z3jcO4YK2zCmZrQZMa1b1lnixyNX3Qveqy0RKetCh3e7GGhAg7ZEnDDZSSBRZe2H007iFeGJm5";
+  "pk_test_51RcUNk4aYz2OR2fHZJOpNRkXe8dX0c8X4jSi8q8trFxNAzpL2qVxNXaE4uMj9tkoQUNlcIuCyAm6MNa4oLsPSSgL00sxxrkHhu";
 
 const PUBLIC_LIVE_KEY =
   "pk_live_51RcUNbG4tz9qB6w3Grl2PEwuK0y0M4fjXpddjHtaywUXiC6W1oUGyifkGNlr5uJ88VOZ2eagjdu7JK5zc09UzjII00GUJkiUcI";

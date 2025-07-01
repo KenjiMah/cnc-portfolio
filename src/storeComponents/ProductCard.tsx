@@ -36,7 +36,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { id, name, description, image, price, currency, productType } =
     product;
-  const isEfile = productType === "e-file";
+  const isEfile = productType === "e-files";
 
   const { cartItems, addToCart, updateQuantity, removeFromCart } = useCart();
   const cartItem = cartItems.find((item) => item.id === id);
@@ -95,12 +95,12 @@ export function ProductCard({ product }: ProductCardProps) {
         </CardDescription>
       </CardHeader>
 
-      <CardContent className="flex-grow flex flex-col justify-between object-fit">
+      <CardContent className="flex-grow flex flex-col justify-between">
         {image && !imageError ? (
           <img
             src={image}
             alt={name}
-            className="rounded-md object-contain aspect-[4/3] w-full"
+            className="rounded-md object-cover aspect-[4/3] w-full"
             onError={() => setImageError(true)}
           />
         ) : (

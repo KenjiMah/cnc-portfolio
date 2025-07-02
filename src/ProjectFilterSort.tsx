@@ -161,20 +161,14 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
         toggleTag={toggleTag}
         clearTags={clearTags}
       >
-        <div
-          style={{
-            position: "relative",
-            display: "inline-block",
-          }}
-        >
-          <i className="fa-solid fa-filter w-4 h-4" />
+        <div className="relative w-4 h-4">
+          <i className="fa-solid fa-filter absolute w-full h-full" />
           <i
-            className="fa-solid fa-hammer"
+            className="fa-solid fa-hammer absolute "
             style={{
-              position: "absolute",
-              top: ".36rem",
-              right: ".25rem",
-              fontSize: "0.35rem",
+              top: "10%",
+              left: "68%",
+              transform: "scale(0.4) translate(-50%, -50%)",
               color: "#1a1a1a", // gray-600
             }}
           />

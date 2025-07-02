@@ -166,9 +166,9 @@ export function ProjectFilterSort({ onChange }: FilterSortProps) {
           <i
             className="fa-solid fa-hammer absolute "
             style={{
-              top: "10%",
-              left: "68%",
-              transform: "scale(0.4) translate(-50%, -50%)",
+              top: 0,
+              left: "70%",
+              transform: "scale(0.35) translate(-50%, -50%)",
               color: "#1a1a1a", // gray-600
             }}
           />

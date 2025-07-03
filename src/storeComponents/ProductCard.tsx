@@ -96,16 +96,18 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardHeader>
 
       <CardContent className="flex-grow flex flex-col justify-between">
-        {image && !imageError ? (
-          <img
-            src={image}
-            alt={name}
-            className="rounded-md object-cover aspect-[4/3] w-full"
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <ImagePlaceholder />
-        )}
+        <div className="items-center content-center h-full">
+          {image && !imageError ? (
+            <img
+              src={image}
+              alt={name}
+              className="rounded-md object-fit w-full"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <ImagePlaceholder />
+          )}{" "}
+        </div>
         <p className="text-3xl font-bold mt-4">{formatCurrency(price)}</p>
       </CardContent>
 

@@ -38,7 +38,7 @@ export function PaymentView({
             <AlertDescription>
               A download link for your CAD files will be sent to the email
               address you use for payment. Please note: the link will be valid
-              for 2 weeks, after which it will expire automatically.
+              for 7 days, after which it will expire automatically.
             </AlertDescription>
           </Alert>
         </div>

@@ -39,6 +39,7 @@ export function CartView({
             id: item.id,
             quantity: item.quantity,
             productType: item.productType,
+            name: item.name,
           })),
           returnUrl: returnUrlWithTemplate,
         }),
@@ -49,6 +50,7 @@ export function CartView({
         const { error } = data;
         if (error) {
           setError(error);
+          setIsLoading(false);
         } else {
           onProceed(data.clientSecret);
         }
@@ -86,7 +88,7 @@ export function CartView({
             </Button>
           ) : (
             <Button
-              disabled={isLoading}
+              disabled={isLoading || !!error}
               onClick={handleCheckout}
               className="w-full mt-4"
             >

@@ -34,7 +34,7 @@ export const projects: ProjectEntry[] = [
     description:
       "Designed and milled a Minion plaque for a custom project, with a focus on precision and aesthetics.",
     // Placeholder image, replace with actual image path
-    image: imageMap["../assets/images/minionPlaque/finishedMinion.jpeg"],
+    image: ALL_IMAGES_MAP["../assets/images/minionPlaque/finishedMinion.jpeg"],
     tags: [
       "CNC Machining",
       "Keycap Design",

@@ -1,3 +1,4 @@
+import { MinionPlaqueProject } from "@/projectDetailedPages/MinionPlaqueProject";
 import { BasketballKeycapProject } from "../projectDetailedPages/BasketballKeycapProject";
 import { CncLetterProject } from "../projectDetailedPages/CncLetterProject";
 import { DiceProject } from "../projectDetailedPages/DiceProject";
@@ -23,6 +24,31 @@ export interface ProjectEntry {
 }
 
 export const projects: ProjectEntry[] = [
+  {
+    id: "minionPlaque",
+    title: "Minion Plaque",
+    projectType: "Case Study",
+    description:
+      "Designed and milled a Minion plaque for a custom project, with a focus on precision and aesthetics.",
+    // Placeholder image, replace with actual image path
+    image: imageMap["../assets/images/minionPlaque/finishedMinion.jpeg"],
+    tags: [
+      "CNC Machining",
+      "Keycap Design",
+      "Tormach PCNC 1100",
+      "CAM",
+      "Aluminum",
+      "Fusion 360",
+      "Ball End Mill",
+      "Tapping",
+      "Tool Offsets",
+      "Workholding",
+      "Tramming",
+      "Surface Finish",
+      "Tapered End Mill",
+    ],
+    lastUpdatedUnix: 1751731026,
+  },
   {
     id: "basketballKeycap",
     title: "Basketball Keycap",
@@ -205,4 +231,5 @@ export const PROJECT_MAPPER: Record<
   maedaCrest: MaedaCrestProject,
   poroKeycaps: ThreeDKeycapsProject,
   parklet: ParkletProject,
+  minionPlaque: MinionPlaqueProject,
 };

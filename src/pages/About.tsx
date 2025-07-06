@@ -87,7 +87,7 @@ function RightCol() {
       <div>
         <br />
         <h2 className="font-bold">Worked With</h2>
-        <div className="gap-4 flex">
+        <div className="gap-4 flex pt-3">
           <TooltipLinkWrapper
             link="https://www.linkedin.com/company/breinify/posts/?feedView=all"
             tooltip="Breinify"
@@ -118,7 +118,7 @@ function RightCol() {
 
 export function About() {
   return (
-    <>
+    <div className="py-12">
       <h2 className="text-3xl font-bold mb-8">🛠️ About Me</h2>
       <div className="grid md:grid-cols-6 md:gap-8 justify-center grid-cols-1">
         {/* LEFT COLUMN */}
@@ -126,6 +126,6 @@ export function About() {
         {/* RIGHT COLUMN – About Paragraph */}
         <RightCol />
       </div>
-    </>
+    </div>
   );
 }

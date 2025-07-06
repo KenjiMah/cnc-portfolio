@@ -2,6 +2,7 @@
   width: 100%;
   margin: 0 auto !important;
   text-align: center;
+  color-scheme: dark;
 }
 
 .logo {
@@ -38,4 +39,7 @@
 
 .read-the-docs {
   color: #888;
+}
+[data-radix-toast] {
+  z-index: 99 !important;
 }

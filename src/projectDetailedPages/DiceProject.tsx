@@ -25,7 +25,7 @@ export function DiceProject({ lastUpdatedUnix }: ProjectEntry) {
       </p>
       {/* Model Viewer */}
       <ModelViewer
-        modelPath={"./models/The Dice.obj"}
+        modelFileName={"The Dice.obj"}
         camVectorInit={[1.936, 2.03, 2.03]}
         targetVectorInit={[0.0, 0.0, 0.0]}
       />

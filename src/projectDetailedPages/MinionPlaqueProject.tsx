@@ -19,7 +19,7 @@ export function MinionPlaqueProject({ lastUpdatedUnix }: ProjectEntry) {
         Step 1: Design & Concept
       </h2>
       <ModelViewer
-        modelPath={"./models/Minion Plaque.obj"}
+        modelFileName={"Minion Plaque.obj"}
         camVectorInit={[4.717, 2.067, 5.697]}
         targetVectorInit={[2.685, 0.937, -1.406]}
       />

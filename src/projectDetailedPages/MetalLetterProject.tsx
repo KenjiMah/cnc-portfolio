@@ -28,7 +28,7 @@ export function MetalLetterProject({ lastUpdatedUnix }: ProjectEntry) {
         This made it easy to trace and cut the exact profile by hand.
       </p>
       <ModelViewer
-        modelPath={"./models/Basic Metal Project.obj"}
+        modelFileName={"Basic Metal Project.obj"}
         camVectorInit={[2.23, 4.12, 3.31]}
         targetVectorInit={[0.76, 0.76, -0.88]}
       />

@@ -27,7 +27,7 @@ export function CncLetterProject({ lastUpdatedUnix }: ProjectEntry) {
         and sharper chamfers.
       </p>
       <ModelViewer
-        modelPath={"./models/CNC Letter Project.obj"}
+        modelFileName={"CNC Letter Project.obj"}
         camVectorInit={[2.61, 2.54, 3.76]}
         targetVectorInit={[0.4, 1.02, -1.37]}
       />

@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/tooltip";
 
 type ModelViewerProps = {
-  modelPath: string;
+  modelFileName: string;
   camVectorInit?: [number, number, number];
   targetVectorInit?: [number, number, number];
 };
@@ -36,7 +36,9 @@ function prepareCopyText(cameraPosition: Vector3, target: Vector3): string {
   )}]}\ntargetVectorInit={[${roundAndFormatVector(target)}]}`;
 }
 
-const Scene = ({ modelPath }: { modelPath: string }) => {
+const Scene = ({ modelFileName }: { modelFileName: string }) => {
+  const basePath = "../models/"; // Base path for the models
+  const modelPath = `${basePath}${modelFileName}`; // Full path to the OBJ file
   const mtlPath = modelPath.replace(".obj", ".mtl");
   const materials = useLoader(MTLLoader, mtlPath);
   const obj = useLoader(OBJLoader, modelPath, (loader) => {
@@ -67,7 +69,7 @@ function ResizeHandler() {
 }
 
 export function ModelViewer({
-  modelPath,
+  modelFileName,
   camVectorInit = [2, 2, 2],
   targetVectorInit = [0, 0, 0],
 }: ModelViewerProps) {
@@ -152,7 +154,7 @@ export function ModelViewer({
         <directionalLight position={[5, 10, 7]} intensity={1} />
         <directionalLight position={[-5, -10, -7]} intensity={0.5} />
         <OrbitControls ref={controlsRef} enableDamping />
-        <Scene modelPath={modelPath} />
+        <Scene modelFileName={modelFileName} />
         <GizmoHelper alignment="bottom-right" margin={[80, 80]}>
           <GizmoViewport
             axisColors={["red", "green", "blue"]}

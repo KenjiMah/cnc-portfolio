@@ -31,7 +31,7 @@ export function MaedaCrestProject({ lastUpdatedUnix }: ProjectEntry) {
         surface.
       </p>
       <ModelViewer
-        modelPath={"./models/MaedaCrest.obj"}
+        modelFileName={"MaedaCrest.obj"}
         camVectorInit={[1.27, 1.06, 3.41]}
         targetVectorInit={[1.3, 0.97, -0.5]}
       />

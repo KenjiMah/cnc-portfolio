@@ -21,7 +21,7 @@ export function BasketballKeycapProject({ lastUpdatedUnix }: ProjectEntry) {
         Step 1: Early Modeling & Foam Prototyping
       </h2>
       <ModelViewer
-        modelPath={"./models/Metal Keycap.obj"}
+        modelFileName={"Metal Keycap.obj"}
         camVectorInit={[1.237, 1.318, 1.226]}
         targetVectorInit={[-0.024, 0.06, -0.035]}
       />

@@ -22,7 +22,7 @@ export function Store() {
   }, []); // Empty dependency array means this runs once on mount
 
   return (
-    <div className="flex flex-col items-center justify-center h-full">
+    <div className="flex flex-col items-center justify-center h-full pb-24">
       <div className="container mx-auto px-4 pt-0 py-8">
         <div className="sticky top-4 right-12 z-30 m-4 text-right">
           <CartSheet />

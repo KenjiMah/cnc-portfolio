@@ -136,7 +136,7 @@ const ShadcnIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
 
 const experienceData: Experience[] = [
   {
-    logo: "CSS",
+    logo: "https://www.criticalsynthesissecurity.com/badgeLogo.png",
     title: "Software Engineer Technical Lead",
     company: "Critical Synthesis Security",
     employmentType: "Contract",
@@ -158,7 +158,7 @@ const experienceData: Experience[] = [
     bulletColor: "text-blue-400",
   },
   {
-    logo: "B",
+    logo: "breinify_inc__logo.png",
     title: "Frontend Engineer",
     company: "Breinify",
     employmentType: "Full-time",
@@ -179,7 +179,7 @@ const experienceData: Experience[] = [
     bulletColor: "text-green-400",
   },
   {
-    logo: "S",
+    logo: "sensagrate_logo.png",
     title: "Jr. Software Engineer Intern",
     company: "Sensagrate",
     employmentType: "Internship",
@@ -310,36 +310,66 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
   return (
     <Card className="p-8 bg-zinc-900 border border-zinc-800 shadow-2xl shadow-zinc-950/50 transition-transform duration-300 hover:border-zinc-700 hover:-translate-y-1">
-      <div className="flex flex-col md:flex-row md:items-start md:gap-6 mb-6">
-        <div className="w-12 h-12 bg-zinc-800 border border-zinc-700 rounded-lg flex items-center justify-center text-white font-bold text-xl mb-4 md:mb-0 flex-shrink-0">
-          {experience.logo}
-        </div>
-        <div className="flex-1">
-          <h3 className="text-2xl font-bold text-zinc-100 mb-1">
-            {experience.title}
-          </h3>
-          <p className="text-lg text-zinc-300 font-medium mb-3">
-            {experience.company}
-          </p>
-          <div className="flex flex-wrap gap-2 text-sm">
-            <Badge
-              variant="secondary"
-              className={`${experience.badgeColor} px-3 py-1`}
-            >
-              {experience.employmentType}
-            </Badge>
-            <Badge
-              variant="outline"
-              className="border-zinc-700 text-zinc-400 px-3 py-1"
-            >
-              {experience.duration}
-            </Badge>
-            <Badge
-              variant="outline"
-              className="border-zinc-700 text-zinc-400 px-3 py-1"
-            >
-              {experience.location}
-            </Badge>
+      <div className="mb-6">
+        <h3 className="text-2xl font-bold text-zinc-100 mb-1">
+          {experience.title}
+        </h3>
+        <div className="flex gap-4">
+          <div className="w-12 h-12 bg-white border border-zinc-300 rounded-lg flex items-center justify-center text-zinc-800 font-bold text-lg flex-shrink-0 self-center">
+            {experience.logo.includes(".png") ||
+            experience.logo.includes(".jpg") ||
+            experience.logo.includes(".jpeg") ||
+            experience.logo.includes("http") ? (
+              <img
+                src={
+                  experience.logo.includes("http")
+                    ? experience.logo
+                    : `${import.meta.env.BASE_URL}${experience.logo}`
+                }
+                alt={experience.company}
+                className="w-8 h-8 object-contain"
+              />
+            ) : (
+              experience.logo
+            )}
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-3">
+              <p className="text-lg text-zinc-300 font-medium">
+                {experience.company}
+              </p>
+              {experience.company === "Critical Synthesis Security" && (
+                <a
+                  href="https://www.criticalsynthesissecurity.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                >
+                  <Globe className="w-4 h-4" />
+                  View Website
+                </a>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2 text-sm">
+              <Badge
+                variant="secondary"
+                className={`${experience.badgeColor} px-3 py-1`}
+              >
+                {experience.employmentType}
+              </Badge>
+              <Badge
+                variant="outline"
+                className="border-zinc-700 text-zinc-400 px-3 py-1"
+              >
+                {experience.duration}
+              </Badge>
+              <Badge
+                variant="outline"
+                className="border-zinc-700 text-zinc-400 px-3 py-1"
+              >
+                {experience.location}
+              </Badge>
+            </div>
           </div>
         </div>
       </div>

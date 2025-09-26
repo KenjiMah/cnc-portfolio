@@ -2,6 +2,7 @@ import { About } from "./pages/About";
 import "./App.css";
 import { DetailedProject } from "./pages/DetailedProject";
 import { Projects } from "./pages/Projects";
+import { ComputerScience } from "./pages/ComputerScience";
 import { Routes, Route } from "react-router-dom";
 import { IconLinks } from "./customComponents/IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
@@ -48,6 +49,10 @@ function App() {
             <Route index element={<Projects />} />
             <Route path={ROUTES.ABOUTMEPAGE} element={<About />} />
             <Route path={ROUTES.PROJECTPAGE} element={<Projects />} />
+            <Route
+              path={ROUTES.COMPUTERSCIENCE}
+              element={<ComputerScience />}
+            />
             <Route path={ROUTES.SUCCESSFUL_PAYMENT} element={<SuccessPage />} />
             <Route path={ROUTES.STORE} element={<Store />} />
             <Route

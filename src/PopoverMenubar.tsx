@@ -38,6 +38,12 @@ export function PopoverMenubar() {
           Projects
         </IconWrapper>
         <IconWrapper
+          pathTo={`/${ROUTES.COMPUTERSCIENCE}`}
+          iconClassName={`fa-solid fa-code pt-1`}
+        >
+          CS Work
+        </IconWrapper>
+        <IconWrapper
           pathTo={`/${ROUTES.ABOUTMEPAGE}`}
           iconClassName={`fa-solid fa-info-circle pt-1`}
         >

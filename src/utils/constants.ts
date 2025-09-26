@@ -3,6 +3,7 @@ export const ROUTES = {
   ABOUTMEPAGE: "about",
   STORE: "store",
   SUCCESSFUL_PAYMENT: "success",
+  COMPUTERSCIENCE: "computer-science",
 };
 
 export const TOOL_TAGS = [

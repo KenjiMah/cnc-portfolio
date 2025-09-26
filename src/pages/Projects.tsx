@@ -38,7 +38,7 @@ export function Projects() {
   }, [selectedTags, sortOption]);
 
   return (
-    <div className="max-w-6xl mx-auto py-12">
+    <div className="max-w-6xl mx-auto pt-12 pb-24">
       {/* Filter + Sort Controls */}
       <ProjectFilterSort
         onChange={(

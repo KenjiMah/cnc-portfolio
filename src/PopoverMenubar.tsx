@@ -27,33 +27,37 @@ function IconWrapper({
 export function PopoverMenubar() {
   return (
     <Card
-      className="bg-gray-400 fixed p-3 z-30 bottom-2 border-gray-400 text-zinc-100"
+      className="bg-gray-400 fixed p-2 z-30 bottom-2 left-2 right-2 border-gray-400 text-zinc-100 sm:left-auto sm:right-auto sm:px-3 sm:py-3"
       style={{ justifySelf: "anchor-center" }}
     >
-      <div className="flex gap-2 ">
+      <div className="flex gap-1 sm:gap-2 justify-between sm:justify-center">
         <IconWrapper
           pathTo={`/${ROUTES.PROJECTPAGE}`}
           iconClassName={`fa-regular fa-object-group`}
         >
-          Projects
+          <span className="hidden sm:inline">Projects</span>
+          <span className="sm:hidden">Proj</span>
         </IconWrapper>
         <IconWrapper
           pathTo={`/${ROUTES.COMPUTERSCIENCE}`}
           iconClassName={`fa-solid fa-code pt-1`}
         >
-          CS Work
+          <span className="hidden sm:inline">CS Work</span>
+          <span className="sm:hidden">CS</span>
         </IconWrapper>
         <IconWrapper
           pathTo={`/${ROUTES.ABOUTMEPAGE}`}
           iconClassName={`fa-solid fa-info-circle pt-1`}
         >
-          About
+          <span className="hidden sm:inline">About</span>
+          <span className="sm:hidden">Info</span>
         </IconWrapper>
         <IconWrapper
           pathTo={`/${ROUTES.STORE}`}
           iconClassName={`fa-solid fa-shopping-cart pt-1`}
         >
-          Store
+          <span className="hidden sm:inline">Store</span>
+          <span className="sm:hidden">Shop</span>
         </IconWrapper>
       </div>
     </Card>

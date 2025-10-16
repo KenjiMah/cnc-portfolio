@@ -1,6 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { fadeInAnimation } from "@/animations/computer-science";
 import type { SectionHeaderProps } from "@/types/computer-science";
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -8,12 +6,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   description,
 }) => {
   return (
-    <motion.div
-      className="mb-16 text-center"
-      initial={fadeInAnimation.initial}
-      whileInView={fadeInAnimation.animate}
-      viewport={{ once: true, amount: 0.2 }}
-    >
+    <div className="mb-16 text-center">
       <h2 className="text-4xl md:text-5xl font-bold mb-4 text-zinc-100 tracking-tight">
         {title}
       </h2>
@@ -23,6 +16,6 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           {description}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 };

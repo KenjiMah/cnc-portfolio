@@ -4,6 +4,8 @@ export const ROUTES = {
   STORE: "store",
   SUCCESSFUL_PAYMENT: "success",
   COMPUTERSCIENCE: "computer-science",
+  COMPUTERSCIENCE_RESUME: "computer-science/resume",
+  COMPUTERSCIENCE_BLOG: "computer-science/blog",
 };
 
 export const TOOL_TAGS = [

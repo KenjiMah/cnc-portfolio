@@ -3,6 +3,9 @@ import "./App.css";
 import { DetailedProject } from "./pages/DetailedProject";
 import { Projects } from "./pages/Projects";
 import { ComputerScience } from "./pages/ComputerScience";
+import { ComputerScienceResume } from "./pages/ComputerScienceResume";
+import { ComputerScienceBlog } from "./pages/ComputerScienceBlog";
+import { BlogPostDetail } from "./pages/BlogPostDetail";
 import { Routes, Route } from "react-router-dom";
 import { IconLinks } from "./customComponents/IconLinks";
 import { PopoverMenubar } from "./PopoverMenubar";
@@ -53,11 +56,23 @@ function App() {
               path={ROUTES.COMPUTERSCIENCE}
               element={<ComputerScience />}
             />
+            <Route
+              path={ROUTES.COMPUTERSCIENCE_RESUME}
+              element={<ComputerScienceResume />}
+            />
+            <Route
+              path={ROUTES.COMPUTERSCIENCE_BLOG}
+              element={<ComputerScienceBlog />}
+            />
             <Route path={ROUTES.SUCCESSFUL_PAYMENT} element={<SuccessPage />} />
             <Route path={ROUTES.STORE} element={<Store />} />
             <Route
               path={`${ROUTES.PROJECTPAGE}/:projectId`}
               element={<DetailedProject />}
+            />
+            <Route
+              path={`${ROUTES.COMPUTERSCIENCE_BLOG}/:blogId`}
+              element={<BlogPostDetail />}
             />
           </Routes>
         </section>

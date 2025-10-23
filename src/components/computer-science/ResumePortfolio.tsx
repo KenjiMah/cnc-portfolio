@@ -84,7 +84,7 @@ export const ResumePortfolio = memo(function ResumePortfolio() {
   return (
     <div className="space-y-16">
       {experienceData.map((exp, index) => (
-        <LazySection key={exp.id || index} delay={index}>
+        <LazySection key={index} delay={index}>
           <MemoizedExperienceCard experience={exp} />
         </LazySection>
       ))}

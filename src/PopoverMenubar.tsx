@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ROUTES } from "./utils/constants";
 import type { ReactNode } from "react";
+import { useMenubarVisibilityContext } from "./context/MenubarVisibilityContext";
 // import { useLocation } from "react-router-dom";
 
 function IconWrapper({
@@ -25,6 +26,12 @@ function IconWrapper({
 }
 
 export function PopoverMenubar() {
+  const { isVisible } = useMenubarVisibilityContext();
+
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <Card
       className="bg-gray-400 fixed p-2 z-30 bottom-2 left-2 right-2 border-gray-400 text-zinc-100 sm:left-auto sm:right-auto sm:px-3 sm:py-3"

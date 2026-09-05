@@ -38,7 +38,7 @@ export const experienceData: Experience[] = [
     title: "Software Engineer Technical Lead",
     company: "Critical Synthesis Security",
     employmentType: "Contract",
-    duration: "Jun 2025 - Present · 4 mos",
+    duration: "Jun 2025 - Present",
     location: "San Francisco, CA · Remote",
     description:
       "Spearheaded the greenfield development of a full-stack SaaS platform for security guard training and certification as the sole engineer and technical lead.",
@@ -54,6 +54,41 @@ export const experienceData: Experience[] = [
     ],
     badgeColor: "bg-blue-900/50 text-blue-300 border border-blue-700",
     bulletColor: "text-blue-400",
+  },
+  {
+    logo: "",
+    title: "Freelance Full Stack Engineer",
+    company: "EHM Design Studio",
+    employmentType: "Freelance",
+    duration: "Aug 2026 - Present",
+    location: "Remote",
+    description: "Engineered and launched a bespoke e-commerce platform and client portal from scratch for a custom costume design studio using Next.js 16, React 19, and TypeScript.",
+    achievements: [
+      "Partnered directly with the client to translate complex business workflows—including custom clothing design pipelines and multi-step fitting processes—into a scalable technical architecture",
+      "Architected a secure backend using Supabase (PostgreSQL), implementing Row Level Security (RLS) policies and a robust schema to manage custom orders, client measurements, and project timelines",
+      "Integrated Stripe via webhooks for automated deposit processing and secure checkout, alongside Calendly API for seamless client consultation bookings",
+      "Developed a dynamic, SVG-based interactive measurement guide and crafted high-performance, accessible UI animations across the platform using Framer Motion and Tailwind CSS",
+      "Established the complete development lifecycle and infrastructure, including local Docker-based Supabase environments, database migrations, and secure authentication flows"
+    ],
+    badgeColor: "bg-emerald-900/50 text-emerald-300 border border-emerald-700",
+    bulletColor: "text-emerald-400",
+  },
+  {
+    logo: "",
+    title: "Creator & Lead Developer",
+    company: "311 National Audit Index",
+    employmentType: "Personal Project",
+    duration: "2026 - Present",
+    location: "Remote",
+    description: "Built a high-performance, national-scale analytics dashboard for civic 311 data that standardizes and aggregates millions of 311 service requests across major US cities.",
+    achievements: [
+      "Architected a highly scalable, serverless data pipeline using Python and Polars to extract, transform, and normalize data from various Socrata APIs into 7 universal categories",
+      "Implemented DuckDB-Wasm in the Next.js frontend to execute SQL queries directly against remote Parquet files (stored in Cloudflare R2) via HTTP Range Requests, eliminating traditional backend database costs",
+      "Developed interactive WebGL point rendering visualizations with React-Map-GL (Mapbox) and Recharts for real-time cross-city comparisons and neighborhood livability analysis",
+      "Integrated Clerk for authentication and Stripe via webhooks to build a freemium monetization model, granting Pro users access to historical datasets via AWS presigned URLs"
+    ],
+    badgeColor: "bg-orange-900/50 text-orange-300 border border-orange-700",
+    bulletColor: "text-orange-400",
   },
   {
     logo: "breinify_inc__logo.png",
@@ -150,19 +185,19 @@ export const techCategories: TechCategory[] = [
 
 export const metricsData: Metric[] = [
   {
-    value: "300%",
-    label: "Productivity Boost",
-    description: "Analysts' efficiency improvement",
+    value: "3+",
+    label: "Full-Stack Products",
+    description: "SaaS & e-commerce platforms launched",
     color: "text-blue-400",
   },
   {
-    value: "5+",
-    label: "Major Modules",
-    description: "Reporting, Database, API Monitor",
-    color: "text-green-400",
+    value: "1M+",
+    label: "Data Points Processed",
+    description: "In the 311 National Audit Index pipeline",
+    color: "text-orange-400",
   },
   {
-    value: "2+",
+    value: "4+",
     label: "Years Experience",
     description: "Full-stack development",
     color: "text-purple-400",
